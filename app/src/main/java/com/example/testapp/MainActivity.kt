@@ -30,12 +30,12 @@ class MainActivity : AppCompatActivity() {
         val menuItems = arrayOf(
             CbnMenuItem(
                 R.drawable.ic_home,
-                R.drawable.avd_bell,
+                R.drawable.avd_home,
                 R.id.homeFragment
             ),
             CbnMenuItem(
                 R.drawable.ic_copy,
-                R.drawable.avd_bell,
+                R.drawable.avd_copy,
                 R.id.leaderboardFragment
             ),
             CbnMenuItem(
@@ -45,12 +45,12 @@ class MainActivity : AppCompatActivity() {
             ),
             CbnMenuItem(
                 R.drawable.ic_camera,
-                R.drawable.avd_bell,
+                R.drawable.avd_camera,
                 R.id.cameraFragment
             ),
             CbnMenuItem(
                 R.drawable.ic_user,
-                R.drawable.avd_bell,
+                R.drawable.avd_user,
                 R.id.profileFragment
             )
         )

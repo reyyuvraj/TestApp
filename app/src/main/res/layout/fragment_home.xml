@@ -1,18 +1,472 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     tools:context=".home.HomeFragment">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/home"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginTop="32dp"
+        android:paddingHorizontal="16dp"
+        android:paddingTop="32dp"
+        android:paddingBottom="108dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/fh_goals_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/nero"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/fh_goals_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="4dp"
+                    android:text="@string/your_daily_goals"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/fh_goals_card_arrow"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:contentDescription="@string/go_to_next_screen"
+                    app:layout_constraintBottom_toBottomOf="@id/fh_goals_txt"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/fh_goals_txt" />
+
+                <TextView
+                    android:id="@+id/fh_goals_span_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="4dp"
+                    android:text="@string/last_7_days"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/fh_goals_txt" />
+
+                <TextView
+                    android:id="@+id/fh_goals_score_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="4dp"
+                    android:text="@string/_0_7"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/fh_goals_span_txt" />
+
+                <TextView
+                    android:id="@+id/fh_week_goals_achieved_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="4dp"
+                    android:layout_marginEnd="16dp"
+                    android:text="@string/achieved"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/fh_goals_score_txt" />
+
+                <ImageView
+                    android:id="@+id/fh_goals_org_logo"
+                    android:layout_width="54dp"
+                    android:layout_height="36dp"
+                    android:contentDescription="@string/logo"
+                    app:layout_constraintBottom_toBottomOf="@id/fh_week_goals_achieved_txt"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/fh_week_goals_achieved_txt" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/fh_week_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fh_goals_card">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/nero"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/fh_weekly_target_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="4dp"
+                    android:text="@string/your_weekly_target"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/fh_weekly_card_arrow"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:contentDescription="@string/go_to_next_screen"
+                    app:layout_constraintBottom_toBottomOf="@id/fh_weekly_target_txt"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/fh_weekly_target_txt" />
+
+                <TextView
+                    android:id="@+id/fh_week_span_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="4dp"
+                    android:text="@string/apr_9_apr_15"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/fh_weekly_target_txt" />
+
+                <TextView
+                    android:id="@+id/fh_week_score_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="4dp"
+                    android:text="@string/_0_of_150"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/fh_week_span_txt" />
+
+                <TextView
+                    android:id="@+id/fh_week_benefit_txt"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="4dp"
+                    android:layout_marginEnd="16dp"
+                    android:text="@string/week_benefit_txt"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toStartOf="@id/fh_week_org_logo"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/fh_week_score_txt" />
+
+                <ImageView
+                    android:id="@+id/fh_week_org_logo"
+                    android:layout_width="54dp"
+                    android:layout_height="36dp"
+                    android:contentDescription="@string/logo"
+                    app:layout_constraintBottom_toBottomOf="@id/fh_week_benefit_txt"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/fh_week_benefit_txt" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/fh_trends_txt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="8dp"
+            android:gravity="start"
+            android:text="@string/trends"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fh_week_card" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/fh_weight_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fh_trends_txt">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/nero"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/fh_weight_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="4dp"
+                    android:text="@string/your_weekly_target"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/fh_weight_card_arrow"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:contentDescription="@string/go_to_next_screen"
+                    app:layout_constraintBottom_toBottomOf="@id/fh_weight_txt"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/fh_weight_txt" />
+
+                <ImageView
+                    android:id="@+id/fh_weight_card_cancel"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:contentDescription="@string/remove_card"
+                    app:layout_constraintBottom_toBottomOf="@id/fh_weight_txt"
+                    app:layout_constraintEnd_toStartOf="@id/fh_weight_card_arrow"
+                    app:layout_constraintTop_toTopOf="@id/fh_weight_txt" />
+
+                <TextView
+                    android:id="@+id/fh_weight_span_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="4dp"
+                    android:text="@string/jan_16_apr_9"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/fh_weight_txt" />
+
+                <TextView
+                    android:id="@+id/fh_weight_score_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="4dp"
+                    android:text="@string/_69kg"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/fh_weight_span_txt" />
+
+                <TextView
+                    android:id="@+id/fh_week_weight_achieved_txt"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="4dp"
+                    android:layout_marginEnd="16dp"
+                    android:text="@string/yesterday"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toStartOf="@id/fh_weight_org_logo"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/fh_weight_score_txt" />
+
+                <ImageView
+                    android:id="@+id/fh_weight_org_logo"
+                    android:layout_width="54dp"
+                    android:layout_height="36dp"
+                    android:contentDescription="@string/logo"
+                    app:layout_constraintBottom_toBottomOf="@id/fh_week_weight_achieved_txt"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/fh_week_weight_achieved_txt" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/fh_discover_txt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="8dp"
+            android:gravity="start"
+            android:text="@string/discover"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fh_weight_card" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/fh_sleep_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="8dp"
+            app:layout_constraintBottom_toTopOf="@id/fh_fit_card"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fh_discover_txt">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/nero"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/fh_sleep_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="4dp"
+                    android:text="@string/how_much_sleep_you_need"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toTopOf="@id/fh_sleep_org_logo"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/fh_sleep_card_arrow"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:contentDescription="@string/go_to_next_screen"
+                    app:layout_constraintBottom_toBottomOf="@id/fh_sleep_txt"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/fh_sleep_txt" />
+
+                <ImageView
+                    android:id="@+id/fh_sleep_card_cancel"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:contentDescription="@string/remove_card"
+                    app:layout_constraintBottom_toBottomOf="@id/fh_sleep_txt"
+                    app:layout_constraintEnd_toStartOf="@id/fh_sleep_card_arrow"
+                    app:layout_constraintTop_toTopOf="@id/fh_sleep_txt" />
+
+                <ImageView
+                    android:id="@+id/fh_sleep_org_logo"
+                    android:layout_width="72dp"
+                    android:layout_height="36dp"
+                    android:layout_marginVertical="4dp"
+                    android:contentDescription="@string/logo"
+                    android:text="@string/jan_16_apr_9"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toTopOf="@id/fh_sleep_desc"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/fh_sleep_card_arrow" />
+
+                <TextView
+                    android:id="@+id/fh_sleep_desc"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="4dp"
+                    android:layout_marginEnd="16dp"
+                    android:text="@string/learn_about_sleep"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toStartOf="@id/fh_sleep_logo"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/fh_sleep_org_logo" />
+
+                <ImageView
+                    android:id="@+id/fh_sleep_logo"
+                    android:layout_width="54dp"
+                    android:layout_height="36dp"
+                    android:contentDescription="@string/logo"
+                    app:layout_constraintBottom_toBottomOf="@id/fh_sleep_desc"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/fh_sleep_desc" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/fh_fit_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fh_sleep_card">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/nero"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/fh_fit_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="4dp"
+                    android:text="@string/stay_fit_with_me"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/fh_fit_card_cancel"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:contentDescription="@string/remove_card"
+                    app:layout_constraintBottom_toBottomOf="@id/fh_fit_txt"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/fh_fit_txt" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/fh_fit_rv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="8dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toTopOf="@id/fh_fit_desc_txt"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/fh_fit_txt" />
+
+                <TextView
+                    android:id="@+id/fh_fit_desc_txt"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:text="@string/follow_curated_playlists"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/fh_fit_rv" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!--        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/fh_fab"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:backgroundTint="@color/nero"
+                    android:contentDescription="@string/home_floating_action_button"
+                    android:padding="0dp"
+                    android:src="@drawable/baseline_add_24"
+                    app:borderWidth="0dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />-->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

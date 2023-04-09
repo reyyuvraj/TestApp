@@ -57,5 +57,8 @@ dependencies {
     //Bottom Nav - stylized
     implementation 'np.com.susanthapa:curved_bottom_navigation:0.6.5'
 
+    //Progress Bar - Home
+    implementation 'com.mikhaellopez:circularprogressbar:3.1.0'
+
     api project(path: ':utils')
 }

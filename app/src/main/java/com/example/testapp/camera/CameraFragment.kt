@@ -28,8 +28,6 @@ import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
 
 class CameraFragment : Fragment(R.layout.fragment_camera) {
 
-    private val requestCameraPermission = 101
-    private val paint = Paint()
     private lateinit var textureView: TextureView
     private lateinit var cameraManager: CameraManager
     private lateinit var handler: Handler
@@ -38,6 +36,8 @@ class CameraFragment : Fragment(R.layout.fragment_camera) {
     private lateinit var bitmap: Bitmap
     private lateinit var model: LiteModelMovenetSingleposeThunderTfliteFloat164
     private lateinit var imageProcessor: ImageProcessor
+    private val requestCameraPermission = 101
+    private val paint = Paint()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

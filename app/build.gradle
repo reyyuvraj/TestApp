@@ -17,6 +17,14 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    buildFeatures{
+        compose true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion "1.3.2"
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -39,7 +47,7 @@ android {
 dependencies {
 
     implementation 'androidx.core:core-ktx:1.9.0'
-    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'com.google.android.material:material:1.8.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'org.tensorflow:tensorflow-lite-support:0.1.0'
@@ -56,6 +64,12 @@ dependencies {
 
     //Bottom Nav - stylized
     implementation 'np.com.susanthapa:curved_bottom_navigation:0.6.5'
+
+    implementation "androidx.compose.material:material:1.5.0-alpha02"
+    implementation "androidx.compose.compiler:compiler:1.4.5"
+    implementation "androidx.compose.ui:ui-tooling-preview:1.5.0-alpha02"
+    implementation 'androidx.activity:activity-compose:1.7.0'
+    debugImplementation "androidx.compose.ui:ui-tooling:1.5.0-alpha02"
 
     //Progress Bar - Home
     implementation 'com.mikhaellopez:circularprogressbar:3.1.0'

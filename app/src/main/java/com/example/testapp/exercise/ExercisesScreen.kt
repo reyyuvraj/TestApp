@@ -25,7 +25,7 @@ fun ExerciseCard(
     Row(modifier = Modifier.fillMaxWidth()) {
         Image(painter = painterResource(id = R.drawable.ic_fullbody), contentDescription = null)
         Column() {
-
+            Image(painter = painterResource(id = R.drawable.ic_fullbody), contentDescription = null)
         }
     }
 }

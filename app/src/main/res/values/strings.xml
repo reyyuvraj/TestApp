@@ -6,4 +6,25 @@
     <string name="camera">Camera</string>
     <string name="workout">Workout</string>
     <string name="shows_the_result">Shows the result</string>
+    <string name="your_weekly_target">Your weekly target</string>
+    <string name="apr_9_apr_15">Apr 9 - Apr 15</string>
+    <string name="jan_16_apr_9">Jan 16 - Apr 9</string>
+    <string name="_0_7">0/7</string>
+    <string name="achieved">Achieved</string>
+    <string name="go_to_next_screen">Go to next screen</string>
+    <string name="_0_of_150">0 of 150</string>
+    <string name="week_benefit_txt">Scoring 150 Heart Points a week can help you live longer, sleep better and boost your mood</string>
+    <string name="logo">Logo</string>
+    <string name="your_daily_goals">Your daily goals</string>
+    <string name="last_7_days">Last 7 days</string>
+    <string name="home_floating_action_button">Home floating action button</string>
+    <string name="yesterday">Yesterday</string>
+    <string name="_69kg">69kg</string>
+    <string name="remove_card">Remove card</string>
+    <string name="trends">Trends</string>
+    <string name="discover">Discover</string>
+    <string name="stay_fit_with_me">Stay fit #With Me</string>
+    <string name="follow_curated_playlists">Follow along with curated playlists to help you stay healthy from home</string>
+    <string name="learn_about_sleep">Learn which factor sleep needs, and how to find the right amount for you</string>
+    <string name="how_much_sleep_you_need">How much sleep you need</string>
 </resources>

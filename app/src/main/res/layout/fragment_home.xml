@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
+    android:background="@color/screen_background_dark"
     tools:context=".home.HomeFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -15,13 +15,119 @@
         android:paddingTop="32dp"
         android:paddingBottom="108dp">
 
+        <com.mikhaellopez.circularprogressbar.CircularProgressBar
+            android:id="@+id/fh_circularProgressBar"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginBottom="16dp"
+            app:cpb_background_progressbar_color="@color/progress1_background"
+            app:cpb_background_progressbar_width="12dp"
+            app:cpb_progress="54"
+            app:cpb_progress_direction="to_right"
+            app:cpb_progressbar_color="@color/turquoise"
+            app:cpb_progressbar_width="12dp"
+            app:cpb_round_border="true"
+            app:layout_constraintBottom_toTopOf="@id/fh_goals_card"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.mikhaellopez.circularprogressbar.CircularProgressBar
+            android:id="@+id/fh_circularProgressBar2"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginBottom="16dp"
+            app:cpb_background_progressbar_color="@color/progress2_background"
+            app:cpb_background_progressbar_width="12dp"
+            app:cpb_progress="72"
+            app:cpb_progress_direction="to_right"
+            app:cpb_progressbar_color="@color/summer_sky"
+            app:cpb_progressbar_width="12dp"
+            app:cpb_round_border="true"
+            app:layout_constraintBottom_toTopOf="@id/fh_goals_card"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/fh_progress1_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/_54"
+            android:textColor="@color/turquoise"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/fh_circularProgressBar2" />
+
+        <TextView
+            android:id="@+id/fh_progress2_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="4dp"
+            android:text="@string/_72"
+            android:textColor="@color/summer_sky"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fh_progress1_text" />
+
+        <LinearLayout
+            android:id="@+id/fh_progress_info_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="20dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fh_circularProgressBar">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginHorizontal="8dp"
+                android:contentDescription="@string/heart_points"
+                android:src="@drawable/ic_heart" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/heart_pts"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginHorizontal="8dp"
+                android:contentDescription="@string/steps_count"
+                android:src="@drawable/ic_steps" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/steps"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/fh_goals_card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@id/fh_progress_info_ll">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -45,6 +151,7 @@
                     android:layout_width="16dp"
                     android:layout_height="16dp"
                     android:contentDescription="@string/go_to_next_screen"
+                    android:src="@drawable/ic_baseline_arrow_forward"
                     app:layout_constraintBottom_toBottomOf="@id/fh_goals_txt"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@id/fh_goals_txt" />
@@ -55,7 +162,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="4dp"
                     android:text="@string/last_7_days"
-                    android:textColor="@color/white"
+                    android:textColor="@color/gray"
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/fh_goals_txt" />
@@ -67,7 +174,7 @@
                     android:layout_marginTop="12dp"
                     android:layout_marginBottom="4dp"
                     android:text="@string/_0_7"
-                    android:textColor="@color/white"
+                    android:textColor="@color/summer_sky"
                     android:textSize="24sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/fh_goals_span_txt" />
@@ -79,7 +186,7 @@
                     android:layout_marginVertical="4dp"
                     android:layout_marginEnd="16dp"
                     android:text="@string/achieved"
-                    android:textColor="@color/white"
+                    android:textColor="@color/summer_sky"
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/fh_goals_score_txt" />
@@ -128,6 +235,7 @@
                     android:layout_width="16dp"
                     android:layout_height="16dp"
                     android:contentDescription="@string/go_to_next_screen"
+                    android:src="@drawable/ic_baseline_arrow_forward"
                     app:layout_constraintBottom_toBottomOf="@id/fh_weekly_target_txt"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@id/fh_weekly_target_txt" />
@@ -138,7 +246,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="4dp"
                     android:text="@string/apr_9_apr_15"
-                    android:textColor="@color/white"
+                    android:textColor="@color/gray"
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/fh_weekly_target_txt" />
@@ -150,8 +258,9 @@
                     android:layout_marginTop="12dp"
                     android:layout_marginBottom="4dp"
                     android:text="@string/_0_of_150"
-                    android:textColor="@color/white"
+                    android:textColor="@color/turquoise"
                     android:textSize="24sp"
+                    android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/fh_week_span_txt" />
 
@@ -162,7 +271,7 @@
                     android:layout_marginVertical="4dp"
                     android:layout_marginEnd="16dp"
                     android:text="@string/week_benefit_txt"
-                    android:textColor="@color/white"
+                    android:textColor="@color/gray"
                     android:textSize="16sp"
                     app:layout_constraintEnd_toStartOf="@id/fh_week_org_logo"
                     app:layout_constraintStart_toStartOf="parent"
@@ -170,9 +279,12 @@
 
                 <ImageView
                     android:id="@+id/fh_week_org_logo"
-                    android:layout_width="54dp"
-                    android:layout_height="36dp"
+                    android:layout_width="108dp"
+                    android:layout_height="80dp"
                     android:contentDescription="@string/logo"
+                    android:padding="0dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_american_heart_association"
                     app:layout_constraintBottom_toBottomOf="@id/fh_week_benefit_txt"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@id/fh_week_benefit_txt" />
@@ -216,7 +328,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="4dp"
-                    android:text="@string/your_weekly_target"
+                    android:text="@string/weight"
                     android:textColor="@color/white"
                     android:textSize="20sp"
                     app:layout_constraintStart_toStartOf="parent"
@@ -227,6 +339,7 @@
                     android:layout_width="16dp"
                     android:layout_height="16dp"
                     android:contentDescription="@string/go_to_next_screen"
+                    android:src="@drawable/ic_baseline_arrow_forward"
                     app:layout_constraintBottom_toBottomOf="@id/fh_weight_txt"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@id/fh_weight_txt" />
@@ -237,6 +350,7 @@
                     android:layout_height="16dp"
                     android:layout_marginEnd="16dp"
                     android:contentDescription="@string/remove_card"
+                    android:src="@drawable/ic_remove_cross"
                     app:layout_constraintBottom_toBottomOf="@id/fh_weight_txt"
                     app:layout_constraintEnd_toStartOf="@id/fh_weight_card_arrow"
                     app:layout_constraintTop_toTopOf="@id/fh_weight_txt" />
@@ -247,7 +361,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="4dp"
                     android:text="@string/jan_16_apr_9"
-                    android:textColor="@color/white"
+                    android:textColor="@color/gray"
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/fh_weight_txt" />
@@ -259,7 +373,7 @@
                     android:layout_marginTop="12dp"
                     android:layout_marginBottom="4dp"
                     android:text="@string/_69kg"
-                    android:textColor="@color/white"
+                    android:textColor="@color/gray"
                     android:textSize="24sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/fh_weight_span_txt" />
@@ -270,8 +384,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="4dp"
                     android:layout_marginEnd="16dp"
-                    android:text="@string/yesterday"
-                    android:textColor="@color/white"
+                    android:text="@string/apr_8"
+                    android:textColor="@color/gray"
                     android:textSize="16sp"
                     app:layout_constraintEnd_toStartOf="@id/fh_weight_org_logo"
                     app:layout_constraintStart_toStartOf="parent"
@@ -338,6 +452,7 @@
                     android:layout_width="16dp"
                     android:layout_height="16dp"
                     android:contentDescription="@string/go_to_next_screen"
+                    android:src="@drawable/ic_baseline_arrow_forward"
                     app:layout_constraintBottom_toBottomOf="@id/fh_sleep_txt"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@id/fh_sleep_txt" />
@@ -348,16 +463,19 @@
                     android:layout_height="16dp"
                     android:layout_marginEnd="16dp"
                     android:contentDescription="@string/remove_card"
+                    android:src="@drawable/ic_remove_cross"
                     app:layout_constraintBottom_toBottomOf="@id/fh_sleep_txt"
                     app:layout_constraintEnd_toStartOf="@id/fh_sleep_card_arrow"
                     app:layout_constraintTop_toTopOf="@id/fh_sleep_txt" />
 
                 <ImageView
                     android:id="@+id/fh_sleep_org_logo"
-                    android:layout_width="72dp"
-                    android:layout_height="36dp"
+                    android:layout_width="108dp"
+                    android:layout_height="54dp"
                     android:layout_marginVertical="4dp"
                     android:contentDescription="@string/logo"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_aasm"
                     android:text="@string/jan_16_apr_9"
                     android:textColor="@color/white"
                     android:textSize="16sp"
@@ -372,7 +490,7 @@
                     android:layout_marginVertical="4dp"
                     android:layout_marginEnd="16dp"
                     android:text="@string/learn_about_sleep"
-                    android:textColor="@color/white"
+                    android:textColor="@color/gray"
                     android:textSize="16sp"
                     app:layout_constraintEnd_toStartOf="@id/fh_sleep_logo"
                     app:layout_constraintStart_toStartOf="parent"
@@ -380,9 +498,11 @@
 
                 <ImageView
                     android:id="@+id/fh_sleep_logo"
-                    android:layout_width="54dp"
-                    android:layout_height="36dp"
+                    android:layout_width="108dp"
+                    android:layout_height="80dp"
                     android:contentDescription="@string/logo"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/woman_reading"
                     app:layout_constraintBottom_toBottomOf="@id/fh_sleep_desc"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@id/fh_sleep_desc" />
@@ -422,6 +542,7 @@
                     android:layout_width="16dp"
                     android:layout_height="16dp"
                     android:contentDescription="@string/remove_card"
+                    android:src="@drawable/ic_remove_cross"
                     app:layout_constraintBottom_toBottomOf="@id/fh_fit_txt"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@id/fh_fit_txt" />
@@ -435,7 +556,9 @@
                     app:layout_constraintBottom_toTopOf="@id/fh_fit_desc_txt"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/fh_fit_txt" />
+                    app:layout_constraintTop_toBottomOf="@id/fh_fit_txt"
+                    tools:itemCount="5"
+                    tools:listitem="@layout/stay_fit_item" />
 
                 <TextView
                     android:id="@+id/fh_fit_desc_txt"
@@ -444,7 +567,7 @@
                     android:layout_marginVertical="8dp"
                     android:layout_marginEnd="16dp"
                     android:text="@string/follow_curated_playlists"
-                    android:textColor="@color/white"
+                    android:textColor="@color/gray"
                     android:textSize="16sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -453,19 +576,6 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </com.google.android.material.card.MaterialCardView>
-
-        <!--        <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/fh_fab"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
-                    android:backgroundTint="@color/nero"
-                    android:contentDescription="@string/home_floating_action_button"
-                    android:padding="0dp"
-                    android:src="@drawable/baseline_add_24"
-                    app:borderWidth="0dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent" />-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

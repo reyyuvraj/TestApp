@@ -40,10 +40,10 @@ import com.example.testapp.theme.CardEndColorColor
 import com.example.testapp.theme.CardStartColor
 import com.example.testapp.theme.TextColor
 
-@Preview(showBackground = true)
+//@Preview(showBackground = true)
 @Composable
 fun WorkoutScreen(
-
+    onViewMoreNavigate: (String) -> Unit
 ) {
 
     var selectedLevel by remember {
@@ -110,19 +110,22 @@ fun WorkoutScreen(
         WorkoutCard(
             title = "Fullbody Workout",
             exerciseTime = "11 Exercises | 32mins",
-            imgInt = R.drawable.ic_fullbody
+            imgInt = R.drawable.ic_fullbody,
+            onViewMoreNavigate = { onViewMoreNavigate("$selectedLevel FullBody") }
         )
         Spacer(modifier = Modifier.height(16.dp))
         WorkoutCard(
             title = "Lowebody Workout",
             exerciseTime = "12 Exercises | 40mins",
-            imgInt = R.drawable.ic_leg
+            imgInt = R.drawable.ic_leg,
+            onViewMoreNavigate = { onViewMoreNavigate("$selectedLevel LowerBody") }
         )
         Spacer(modifier = Modifier.height(16.dp))
         WorkoutCard(
             title = "AB Workout",
             exerciseTime = "14 Exercises | 20mins",
-            imgInt = R.drawable.ic_abs
+            imgInt = R.drawable.ic_abs,
+            onViewMoreNavigate = { onViewMoreNavigate("$selectedLevel ABsBody") }
         )
 
     }
@@ -246,7 +249,8 @@ fun WorkoutCard(
     modifier: Modifier = Modifier,
     title: String = "Title",
     exerciseTime: String = "30min",
-    imgInt: Int = R.drawable.ic_fullbody
+    imgInt: Int = R.drawable.ic_fullbody,
+    onViewMoreNavigate: () -> Unit
 ) {
     Box(
         modifier = Modifier
@@ -288,7 +292,7 @@ fun WorkoutCard(
                 Spacer(modifier = Modifier.height(16.dp))
 
                 Button(
-                    onClick = {  },
+                    onClick = { onViewMoreNavigate() },
                     modifier = Modifier,
                     colors = ButtonDefaults.buttonColors(
                         backgroundColor = Color.White,

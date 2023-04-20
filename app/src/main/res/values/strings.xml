@@ -27,4 +27,6 @@
     <string name="follow_curated_playlists">Follow along with curated playlists to help you stay healthy from home</string>
     <string name="learn_about_sleep">Learn which factor sleep needs, and how to find the right amount for you</string>
     <string name="how_much_sleep_you_need">How much sleep you need</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

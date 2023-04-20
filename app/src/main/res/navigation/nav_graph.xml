@@ -28,5 +28,13 @@
     <fragment
         android:id="@+id/workoutFragment"
         android:name="com.example.testapp.workout.WorkoutFragment"
-        android:label="fragment_workout" />
+        android:label="fragment_workout" >
+        <action
+            android:id="@+id/action_workoutFragment_to_exercisesFragment"
+            app:destination="@id/exercisesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/exercisesFragment"
+        android:name="com.example.testapp.exercise.ExercisesFragment"
+        android:label="fragment_exercises" />
 </navigation>

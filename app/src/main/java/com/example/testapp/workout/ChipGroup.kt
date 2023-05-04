@@ -32,9 +32,9 @@ fun CategoryChipGroup(
     selectedColor: Color = CardEndColorColor,
     unselectedBackgroundColor: Color = UnselectedChipColor,
     contentSpacing: Arrangement.HorizontalOrVertical = Arrangement.spacedBy(4.dp),
-    contentPadding: PaddingValues = PaddingValues(0.dp),
-    chipTextVerticalPadding: Dp = 4.dp,
-    chipTextHorizontalPadding: Dp = 6.dp,
+    contentPadding: PaddingValues = PaddingValues(2.dp),
+    chipTextVerticalPadding: Dp = 6.dp,
+    chipTextHorizontalPadding: Dp = 10.dp,
     onCategorySelected: (Int?) -> Unit
 ) {
     val (selectedOption, onOptionSelected) = remember {

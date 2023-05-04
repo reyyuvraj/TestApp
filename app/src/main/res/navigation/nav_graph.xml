@@ -36,7 +36,11 @@
     <fragment
         android:id="@+id/exercisesFragment"
         android:name="com.example.testapp.exercise.ExercisesFragment"
-        android:label="fragment_exercises" />
+        android:label="fragment_exercises" >
+        <action
+            android:id="@+id/action_exercisesFragment_to_startExerciseFragment"
+            app:destination="@id/startExerciseFragment" />
+    </fragment>
     <fragment
         android:id="@+id/startExerciseFragment"
         android:name="com.example.testapp.startexercise.StartExerciseFragment"

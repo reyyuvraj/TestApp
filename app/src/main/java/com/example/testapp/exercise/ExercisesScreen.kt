@@ -15,6 +15,11 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.Button
+import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Divider
 import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
@@ -33,6 +38,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.input.nestedscroll.NestedScrollConnection
+import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.ModifierLocalBeyondBoundsLayout
 import androidx.compose.ui.res.painterResource
@@ -42,103 +49,133 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.testapp.R
 import com.example.testapp.theme.TextColor
+import com.example.testapp.theme.UnselectedChipColor
+import com.example.testapp.theme.UnselectedChipTextColor
 import java.nio.file.WatchEvent
 import java.util.Locale
 
 @Composable
 fun ExercisesScreen(
-    onBackArrowPressed: () -> Unit
+    onBackArrowPressed: () -> Unit,
+    onStartPressed: () -> Unit
 ) {
-    Column(modifier = Modifier
-        .fillMaxSize()
-        .padding(top = 40.dp, bottom = 36.dp)) {
-
-        Box(
-            modifier = Modifier.fillMaxWidth(),
-            contentAlignment = Alignment.BottomStart
-        ) {
-
-            Image(
-                painter = painterResource(id = R.drawable.pushupimage),
-                contentDescription = null,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(180.dp),
-                contentScale = ContentScale.Crop
-            )
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(180.dp)
-                    .background(
-                        brush = Brush.verticalGradient(
-                            colors = listOf(
-                                Color.Transparent,
-                                Color.Black
-                            ),
-                            startY = 160f
-                        )
-                    )
-            )
-
-            Icon(
-                imageVector = Icons.Default.KeyboardArrowLeft,
-                contentDescription = "Arrow Back",
-                tint = Color.White,
-                modifier = Modifier
-                    .align(Alignment.TopStart)
-                    .padding(top = 16.dp, start = 16.dp)
-                    .size(24.dp)
-//                    .clickable { onBackArrowPressed() }
-            )
-
-            Text(
-                text = "FullBody Workout",
-                fontSize = MaterialTheme.typography.h5.fontSize,
-                fontWeight = FontWeight.Bold,
-                color = Color.White,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(start = 12.dp, bottom = 18.dp),
-                textAlign = TextAlign.Start
-            )
-        }
-
-        Text(
-            text = "11 mins - 11 workouts",
-            fontSize = MaterialTheme.typography.body1.fontSize,
-            fontWeight = FontWeight.Bold,
-            color = Color.Black.copy(alpha = 0.8f),
-            textAlign = TextAlign.Start,
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(top = 40.dp, bottom = 38.dp)
+    ) {
+        Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(vertical = 12.dp, horizontal = 12.dp)
-        )
-        Divider(
-            color = MaterialTheme.colors.onSurface.copy(alpha = 0.2f),
-            thickness = 1.dp,
-//            modifier = Modifier.padding(vertical = 8.dp)
-        )
-
-        LazyColumn(
-            modifier = Modifier.fillMaxWidth(),
-            contentPadding = PaddingValues(vertical = 8.dp, horizontal = 12.dp)
+                .padding(bottom = 48.dp)
+                .verticalScroll(rememberScrollState())
         ) {
-            items(count = itemList.size, itemContent = {
-                ExerciseCard(
-                    exerciseTitle = itemList[it].exerciseTitle,
-                    numberOfReps = itemList[it].numberOfReps,
-                    imageId = itemList[it].imageId,
+
+            Box(
+                modifier = Modifier.fillMaxWidth(),
+                contentAlignment = Alignment.BottomStart
+            ) {
+
+                Image(
+                    painter = painterResource(id = R.drawable.pushupimage),
+                    contentDescription = null,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(180.dp),
+                    contentScale = ContentScale.Crop
                 )
-                Divider(
-                    color = MaterialTheme.colors.onSurface.copy(alpha = 0.2f),
-                    thickness = 1.dp,
-                    modifier = Modifier.padding(horizontal = 8.dp)
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(180.dp)
+                        .background(
+                            brush = Brush.verticalGradient(
+                                colors = listOf(
+                                    Color.Transparent,
+                                    Color.Black
+                                ),
+                                startY = 160f
+                            )
+                        )
                 )
 
-            })
+                Icon(
+                    imageVector = Icons.Default.KeyboardArrowLeft,
+                    contentDescription = "Arrow Back",
+                    tint = Color.White,
+                    modifier = Modifier
+                        .align(Alignment.TopStart)
+                        .padding(top = 16.dp, start = 16.dp)
+                        .size(34.dp)
+                        .clickable { onBackArrowPressed() }
+                )
+
+                Text(
+                    text = "FullBody Workout",
+                    fontSize = MaterialTheme.typography.h5.fontSize,
+                    fontWeight = FontWeight.Bold,
+                    color = Color.White,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(start = 12.dp, bottom = 18.dp),
+                    textAlign = TextAlign.Start
+                )
+            }
+
+            Text(
+                text = "11 mins - 11 workouts",
+                fontSize = MaterialTheme.typography.body1.fontSize,
+                fontWeight = FontWeight.Bold,
+                color = Color.Black.copy(alpha = 0.8f),
+                textAlign = TextAlign.Start,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(vertical = 12.dp, horizontal = 12.dp)
+            )
+            Divider(
+                color = MaterialTheme.colors.onSurface.copy(alpha = 0.2f),
+                thickness = 1.dp,
+//            modifier = Modifier.padding(vertical = 8.dp)
+            )
+
+            LazyColumn(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(800.dp),
+                contentPadding = PaddingValues(vertical = 8.dp, horizontal = 12.dp)
+            ) {
+                items(count = itemList.size, itemContent = {
+                    ExerciseCard(
+                        exerciseTitle = itemList[it].exerciseTitle,
+                        numberOfReps = itemList[it].numberOfReps,
+                        imageId = itemList[it].imageId,
+                    )
+                    Divider(
+                        color = MaterialTheme.colors.onSurface.copy(alpha = 0.2f),
+                        thickness = 1.dp,
+                        modifier = Modifier.padding(horizontal = 8.dp)
+                    )
+
+                })
+            }
+
         }
 
+        Button(
+            onClick = { onStartPressed() },
+            modifier = Modifier
+                .padding(horizontal = 28.dp)
+                .fillMaxWidth()
+                .align(Alignment.BottomCenter)
+                .height(40.dp),
+            colors = ButtonDefaults.buttonColors(
+                backgroundColor = UnselectedChipTextColor,
+                contentColor = Color.White
+            ),
+            shape = RoundedCornerShape(18.dp)
+        ) {
+            Text(text = "START")
+        }
     }
 
 }

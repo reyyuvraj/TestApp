@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.compose.ui.platform.ComposeView
+import androidx.navigation.fragment.findNavController
 import com.example.testapp.R
 import com.example.testapp.workout.WorkoutScreen
 
@@ -26,9 +27,12 @@ class ExercisesFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         composeView.setContent {
-//            ExercisesScreen(onBackArrowPressed = {
-//
-//            })
+            ExercisesScreen(
+                onBackArrowPressed = {
+                    requireActivity().onBackPressed()
+                }, onStartPressed = {
+                    findNavController().navigate(R.id.action_exercisesFragment_to_startExerciseFragment)
+                })
         }
     }
 }

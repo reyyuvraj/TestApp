@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="12dp">
+
+    <ImageView
+        android:id="@+id/li_image_smaller"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:contentDescription="@string/locked_unlocked_league"
+        android:src="@drawable/ic_locked" />
+
+    <ImageView
+        android:id="@+id/li_image_larger"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:contentDescription="@string/current_league"
+        android:visibility="visible" />
+
+</FrameLayout>

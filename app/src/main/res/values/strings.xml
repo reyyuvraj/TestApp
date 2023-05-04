@@ -38,4 +38,13 @@
     <string name="card_logo">Card logo</string>
     <string name="heart_pts">Heart Pts</string>
     <string name="steps">Steps</string>
+    <string name="locked_unlocked_league">Locked/unlocked League</string>
+    <string name="current_league">Current League</string>
+    <string name="_18">18</string>
+    <string name="profile_photo">Profile Photo</string>
+    <string name="reyy">reyy</string>
+    <string name="_54_xp">54 XP</string>
+    <string name="amethyst_league">Amethyst League</string>
+    <string name="top_7_advance_to_next_league">Top 7 Advance to next league</string>
+    <string name="_6_days">6 days</string>
 </resources>

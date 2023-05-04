@@ -39,6 +39,7 @@ import com.example.testapp.R
 import com.example.testapp.theme.CardEndColorColor
 import com.example.testapp.theme.CardStartColor
 import com.example.testapp.theme.TextColor
+import com.example.testapp.theme.UnselectedChipColor
 
 //@Preview(showBackground = true)
 @Composable
@@ -102,7 +103,7 @@ fun WorkoutScreen(
                 ChipItem(1, "Intermediate"),
                 ChipItem(2, "Advance")
             ),
-            unselectedBackgroundColor = Color.Transparent,
+            unselectedBackgroundColor = UnselectedChipColor,
             contentSpacing = Arrangement.SpaceEvenly
         )
 

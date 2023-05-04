@@ -37,4 +37,22 @@
         android:id="@+id/exercisesFragment"
         android:name="com.example.testapp.exercise.ExercisesFragment"
         android:label="fragment_exercises" />
+    <fragment
+        android:id="@+id/startExerciseFragment"
+        android:name="com.example.testapp.startexercise.StartExerciseFragment"
+        android:label="fragment_start_exercise"
+        tools:layout="@layout/fragment_start_exercise" >
+        <action
+            android:id="@+id/action_startExerciseFragment_to_restFragment"
+            app:destination="@id/restFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/restFragment"
+        android:name="com.example.testapp.rest.RestFragment"
+        android:label="fragment_rest"
+        tools:layout="@layout/fragment_rest" >
+        <action
+            android:id="@+id/action_restFragment_to_startExerciseFragment"
+            app:destination="@id/startExerciseFragment" />
+    </fragment>
 </navigation>

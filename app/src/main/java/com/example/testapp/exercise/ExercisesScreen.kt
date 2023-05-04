@@ -46,9 +46,8 @@ import java.nio.file.WatchEvent
 import java.util.Locale
 
 @Composable
-@Preview(showBackground = true)
 fun ExercisesScreen(
-//    onBackArrowPressed: () -> Unit
+    onBackArrowPressed: () -> Unit
 ) {
     Column(modifier = Modifier
         .fillMaxSize()

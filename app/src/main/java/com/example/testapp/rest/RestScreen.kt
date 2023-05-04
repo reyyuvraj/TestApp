@@ -48,7 +48,7 @@ fun RestScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(16.dp),
+            .padding(top = 48.dp, bottom = 36.dp, start = 16.dp, end = 16.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.SpaceBetween
     ) {
@@ -79,7 +79,7 @@ fun RestScreen(
         }
 
 //        Spacer(modifier = Modifier.height(32.dp))
-        TimerScreen()
+        TimerScreen(onSkipPressed = onSkipPressed)
 
         Button(
             onClick = { onSkipPressed() },
@@ -100,7 +100,8 @@ fun RestScreen(
 
 @Composable
 fun TimerScreen(
-    restTime: Long = 20L
+    restTime: Long = 5L,
+    onSkipPressed: () -> Unit
 ) {
     var remainingTime by remember { mutableStateOf(restTime) } // Set initial time to 60 seconds
     val timer = remember { Timer() }
@@ -114,6 +115,13 @@ fun TimerScreen(
                 }
             }
         }, 1000, 1000)
+    }
+
+    // Observe when the remaining time becomes 0 and navigate to another screen
+    LaunchedEffect(remainingTime) {
+        if (remainingTime == 0L) {
+            onSkipPressed()
+        }
     }
 
     Box(

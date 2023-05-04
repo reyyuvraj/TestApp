@@ -53,10 +53,11 @@
     <fragment
         android:id="@+id/restFragment"
         android:name="com.example.testapp.rest.RestFragment"
-        android:label="fragment_rest"
-        tools:layout="@layout/fragment_rest" >
+        android:label="fragment_rest">
         <action
             android:id="@+id/action_restFragment_to_startExerciseFragment"
-            app:destination="@id/startExerciseFragment" />
+            app:destination="@id/startExerciseFragment"
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/startExerciseFragment"/>
     </fragment>
 </navigation>

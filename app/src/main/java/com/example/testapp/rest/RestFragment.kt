@@ -6,11 +6,19 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import com.example.testapp.R
+import com.example.testapp.viewmodel.StartExerciseViewModel
+import kotlinx.coroutines.launch
 
 class RestFragment : Fragment() {
 
     private lateinit var composeView: ComposeView
+    private val viewModel: StartExerciseViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,7 +35,8 @@ class RestFragment : Fragment() {
 
         composeView.setContent {
             RestScreen(onSkipPressed = {
-
+                viewModel.incrementCount()
+                findNavController().navigate(R.id.action_restFragment_to_startExerciseFragment)
             })
         }
     }

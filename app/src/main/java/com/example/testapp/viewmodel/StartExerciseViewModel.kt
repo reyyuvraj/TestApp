@@ -1,6 +1,7 @@
 package com.example.testapp.viewmodel
 
 import androidx.lifecycle.ViewModel
+import com.example.testapp.data.getExerciseData
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -11,7 +12,7 @@ class StartExerciseViewModel: ViewModel() {
     val count: StateFlow<Int> = _count.asStateFlow()
 
     fun getTotalExercise(): Int{
-        return 10
+        return getExerciseData().size-1
     }
 
     fun incrementCount() {

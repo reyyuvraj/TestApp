@@ -63,7 +63,7 @@ fun RestScreen(
                 textAlign = TextAlign.Center,
                 fontWeight = FontWeight.Bold,
                 fontSize = 20.sp,
-                color = UnselectedChipColor
+                color = Color.Black
             )
             Spacer(modifier = Modifier.height(32.dp))
             Text(
@@ -74,7 +74,7 @@ fun RestScreen(
                 textAlign = TextAlign.Center,
                 fontWeight = FontWeight.Bold,
                 fontSize = 28.sp,
-                color = UnselectedChipColor
+                color = Color.Black
             )
         }
 

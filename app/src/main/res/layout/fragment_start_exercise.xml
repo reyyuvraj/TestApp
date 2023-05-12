@@ -17,12 +17,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <pl.droidsonroids.gif.GifImageView
+<!--    <pl.droidsonroids.gif.GifImageView-->
+<!--        android:id="@+id/gifImageView"-->
+<!--        android:layout_width="200dp"-->
+<!--        android:layout_height="200dp"-->
+<!--        android:scaleType="centerCrop"-->
+<!--        android:src="@drawable/testgif"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/backgroundImage"-->
+<!--        app:layout_constraintEnd_toEndOf="@+id/backgroundImage"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/backgroundImage"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/backgroundImage" />-->
+
+    <ImageView
         android:id="@+id/gifImageView"
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/testgif"
         app:layout_constraintBottom_toBottomOf="@+id/backgroundImage"
         app:layout_constraintEnd_toEndOf="@+id/backgroundImage"
         app:layout_constraintStart_toStartOf="@+id/backgroundImage"

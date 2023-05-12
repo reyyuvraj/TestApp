@@ -18,6 +18,7 @@ import androidx.core.content.PermissionChecker
 import androidx.core.content.PermissionChecker.checkSelfPermission
 import androidx.fragment.app.Fragment
 import com.example.testapp.R
+import com.example.testapp.ml.LiteModelMovenetSingleposeLightningTfliteFloat164
 import com.example.testapp.ml.LiteModelMovenetSingleposeThunderTfliteFloat164
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.tensorflow.lite.DataType
@@ -74,9 +75,17 @@ class CameraFragment : Fragment(R.layout.fragment_camera) {
                 tensorImage.load(bitmap)
                 tensorImage = imageProcessor.process(tensorImage)
 
-                // Creates inputs for reference.
+                /*// Creates inputs for reference.
                 val inputFeature0 =
                     TensorBuffer.createFixedSize(intArrayOf(1, 256, 256, 3), DataType.UINT8)
+                inputFeature0.loadBuffer(tensorImage.buffer)
+
+                // Runs model inference and gets result.
+                val outputs = model.process(inputFeature0)
+                val outputFeature0 = outputs.outputFeature0AsTensorBuffer.floatArray*/
+
+                // Creates inputs for reference.
+                val inputFeature0 = TensorBuffer.createFixedSize(intArrayOf(1, 256, 256, 3), DataType.UINT8)
                 inputFeature0.loadBuffer(tensorImage.buffer)
 
                 // Runs model inference and gets result.
@@ -100,6 +109,10 @@ class CameraFragment : Fragment(R.layout.fragment_camera) {
                 imageView.setImageBitmap(mutable)
             }
         }
+    }
+
+    private fun yogaModel() {
+
     }
 
     override fun onDestroy() {

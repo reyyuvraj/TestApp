@@ -8,19 +8,19 @@ class LeagueData {
         return listOf(
             LeagueModel(
                 1,
-                R.drawable.ic_locked,
+                R.drawable.bronze,
                 "league 1",
                 false
             ),
             LeagueModel(
                 2,
-                R.drawable.ic_locked,
+                R.drawable.gold,
                 "league 2",
                 false
             ),
             LeagueModel(
                 3,
-                R.drawable.ic_locked,
+                R.drawable.amethyst,
                 "league 3",
                 true
             ),

@@ -36,8 +36,16 @@ class HomeFragment : Fragment(R.layout.fragment_home), SensorEventListener {
     private fun setUpViews() {
         view?.findViewById<TextView>(R.id.fh_progress2_text)?.text =
             previousTotalSteps.toInt().toString()
+        view?.findViewById<TextView>(R.id.fh_progress1_text)?.text =
+            (previousTotalSteps.toInt() / 10).toString()
         view?.findViewById<CircularProgressBar>(R.id.fh_circularProgressBar2)?.apply {
             setProgressWithAnimation(previousTotalSteps)
+        }
+        view?.findViewById<CircularProgressBar>(R.id.fh_circularProgressBar)?.apply {
+            setProgressWithAnimation(previousTotalSteps / 10)
+        }
+        view?.findViewById<TextView>(R.id.log_tv)?.apply {
+            visibility = View.GONE
         }
     }
 
@@ -116,6 +124,9 @@ class HomeFragment : Fragment(R.layout.fragment_home), SensorEventListener {
             view?.findViewById<CircularProgressBar>(R.id.fh_circularProgressBar2)?.apply {
                 setProgressWithAnimation(currentSteps.toFloat())
             }
+            view?.findViewById<CircularProgressBar>(R.id.fh_circularProgressBar)?.apply {
+                setProgressWithAnimation(currentSteps.toFloat() / 10)
+            }
         }
     }
 
@@ -128,6 +139,9 @@ class HomeFragment : Fragment(R.layout.fragment_home), SensorEventListener {
             setOnLongClickListener {
                 previousTotalSteps = totalSteps
                 this.text = 0.toString()
+                view?.findViewById<CircularProgressBar>(R.id.fh_circularProgressBar2)?.apply {
+                    setProgressWithAnimation(0.toFloat())
+                }
                 saveData()
                 true
             }

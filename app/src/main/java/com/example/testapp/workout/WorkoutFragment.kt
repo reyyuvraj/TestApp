@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import android.widget.TextView
 import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -27,11 +28,19 @@ class WorkoutFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setUpView()
+
         composeView.setContent {
             WorkoutScreen(onViewMoreNavigate = {
                 Toast.makeText(requireContext(),it,Toast.LENGTH_SHORT).show()
                 findNavController().navigate(R.id.action_workoutFragment_to_exercisesFragment)
             })
+        }
+    }
+
+    private fun setUpView() {
+        view?.findViewById<TextView>(R.id.log_tv)?.apply {
+            visibility = View.GONE
         }
     }
 }

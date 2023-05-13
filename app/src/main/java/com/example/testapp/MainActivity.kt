@@ -3,6 +3,7 @@ package com.example.testapp
 import android.os.Build
 import android.os.Bundle
 import android.view.WindowManager
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.compose.ui.graphics.Color
@@ -11,6 +12,10 @@ import androidx.navigation.fragment.NavHostFragment
 import com.example.testapp.databinding.ActivityMainBinding
 import np.com.susanthapa.curved_bottom_navigation.CbnMenuItem
 import np.com.susanthapa.curved_bottom_navigation.CurvedBottomNavigationView
+import timber.log.Timber
+import java.io.BufferedReader
+import java.io.IOException
+import java.io.InputStreamReader
 
 class MainActivity : AppCompatActivity() {
 
@@ -56,24 +61,39 @@ class MainActivity : AppCompatActivity() {
                 R.drawable.ic_camera,
                 R.drawable.avd_camera,
                 R.id.cameraFragment
-            ),
+            )/*,
             CbnMenuItem(
                 R.drawable.ic_user,
                 R.drawable.avd_user,
                 R.id.profileFragment
-            )
+            )*/
         )
 
         binding.navBottom.setMenuItems(menuItems, 0)
         binding.navBottom.setupWithNavController(navController)
         bottomNavigationView = binding.navBottom
+
+        // for logs
+        try {
+            val process = Runtime.getRuntime().exec("logcat -d cameraFrag")
+            val bufferedReader = BufferedReader(
+                InputStreamReader(process.inputStream)
+            )
+            val log = StringBuilder()
+            var line: String? = ""
+            while (bufferedReader.readLine().also { line = it } != null) {
+                log.append(line)
+            }
+            val tv = binding.logTv
+            tv.text = log.toString()
+            /*val logTV = findViewById<TextView>(R.id.fc_log_tv)
+            logTV.text = log.toString()*/
+        } catch (e: IOException) {
+            // not handled yet
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp() || super.onSupportNavigateUp()
-    }
-
-    override fun onStart() {
-        super.onStart()
     }
 }

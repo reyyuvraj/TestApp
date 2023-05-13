@@ -10,22 +10,27 @@ import android.hardware.camera2.CameraManager
 import android.os.Bundle
 import android.os.Handler
 import android.os.HandlerThread
-import android.view.Surface
-import android.view.TextureView
-import android.view.View
+import android.util.Log
+import android.view.*
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.core.content.PermissionChecker
 import androidx.core.content.PermissionChecker.checkSelfPermission
 import androidx.fragment.app.Fragment
+import com.example.testapp.BuildConfig
 import com.example.testapp.R
-import com.example.testapp.ml.LiteModelMovenetSingleposeLightningTfliteFloat164
 import com.example.testapp.ml.LiteModelMovenetSingleposeThunderTfliteFloat164
+import com.example.testapp.util.TextViewTree
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.tensorflow.lite.DataType
 import org.tensorflow.lite.support.image.ImageProcessor
 import org.tensorflow.lite.support.image.TensorImage
 import org.tensorflow.lite.support.image.ops.ResizeOp
 import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
+import timber.log.Timber
+import java.io.BufferedReader
+import java.io.IOException
+import java.io.InputStreamReader
 
 class CameraFragment : Fragment(R.layout.fragment_camera) {
 
@@ -40,8 +45,26 @@ class CameraFragment : Fragment(R.layout.fragment_camera) {
     private val requestCameraPermission = 101
     private val paint = Paint()
 
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Initialize Timber
+        if (BuildConfig.DEBUG) {
+            Timber.plant(Timber.DebugTree())
+        }
+        return super.onCreateView(inflater, container, savedInstanceState)
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        // Initialize Timber
+        if (BuildConfig.DEBUG) {
+            Timber.plant(Timber.DebugTree())
+        }
+
+        setUpView()
 
         textureView = view.findViewById(R.id.fc_texture_view)
         cameraManager = activity?.getSystemService(Context.CAMERA_SERVICE) as CameraManager
@@ -69,6 +92,7 @@ class CameraFragment : Fragment(R.layout.fragment_camera) {
             }
 
             override fun onSurfaceTextureUpdated(p0: SurfaceTexture) {
+                Log.d("cameraFrag", "$p0")
                 bitmap = textureView.bitmap!!
 
                 var tensorImage = TensorImage(DataType.UINT8)
@@ -85,7 +109,8 @@ class CameraFragment : Fragment(R.layout.fragment_camera) {
                 val outputFeature0 = outputs.outputFeature0AsTensorBuffer.floatArray*/
 
                 // Creates inputs for reference.
-                val inputFeature0 = TensorBuffer.createFixedSize(intArrayOf(1, 256, 256, 3), DataType.UINT8)
+                val inputFeature0 =
+                    TensorBuffer.createFixedSize(intArrayOf(1, 256, 256, 3), DataType.UINT8)
                 inputFeature0.loadBuffer(tensorImage.buffer)
 
                 // Runs model inference and gets result.
@@ -109,6 +134,42 @@ class CameraFragment : Fragment(R.layout.fragment_camera) {
                 imageView.setImageBitmap(mutable)
             }
         }
+    }
+
+    private fun setUpView() {
+        view?.findViewById<TextView>(R.id.log_tv)?.apply {
+            visibility = View.VISIBLE
+        }
+
+        // Print a debug log
+        Timber.d("Hello, world!")
+
+        // Print an error log with a throwable
+        val exception = RuntimeException("Something went wrong!")
+        Timber.e(exception)
+
+        // for logs
+        try {
+            val process = Runtime.getRuntime().exec("logcat -d cameraFrag")
+            val bufferedReader = BufferedReader(
+                InputStreamReader(process.inputStream)
+            )
+            val log = StringBuilder()
+            var line: String? = ""
+            while (bufferedReader.readLine().also { line = it } != null) {
+                log.append(line)
+            }
+            val tv = view?.findViewById<TextView>(R.id.fc_log_tv)
+            tv?.text = log.toString()
+            /*val logTV = findViewById<TextView>(R.id.fc_log_tv)
+            logTV.text = log.toString()*/
+        } catch (e: IOException) {
+            // not handled yet
+        }
+
+        /*if (BuildConfig.DEBUG) {
+            Timber.plant(TextViewTree(view?.findViewById<TextView>(R.id.fc_log_tv)!!))
+        }*/
     }
 
     private fun yogaModel() {
@@ -179,6 +240,16 @@ class CameraFragment : Fragment(R.layout.fragment_camera) {
                 }
             }, handler
         )
+    }
+
+    fun clearLog() {
+        try {
+            val process = ProcessBuilder()
+                .command("logcat", "-d")
+                .redirectErrorStream(true)
+                .start()
+        } catch (e: IOException) {
+        }
     }
 
     @Deprecated("Deprecated in Java")

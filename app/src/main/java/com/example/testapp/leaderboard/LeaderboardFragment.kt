@@ -2,6 +2,7 @@ package com.example.testapp.leaderboard
 
 import android.os.Bundle
 import android.view.View
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -18,6 +19,7 @@ class LeaderboardFragment : Fragment(R.layout.fragment_leaderboard) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setUpView()
         val leagueRecyclerView: RecyclerView = view.findViewById(R.id.fl_league_rv)
         leagueRecyclerView.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
@@ -31,5 +33,11 @@ class LeaderboardFragment : Fragment(R.layout.fragment_leaderboard) {
         rankingAdapter = RankingAdapter()
         rankingRecyclerView.adapter = rankingAdapter
         rankingAdapter.setData(RankingData().rankingList())
+    }
+
+    private fun setUpView() {
+        view?.findViewById<TextView>(R.id.log_tv)?.apply {
+            visibility = View.GONE
+        }
     }
 }

@@ -48,6 +48,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.testapp.R
+import com.example.testapp.model.SingleExerciseDataClass
 import com.example.testapp.theme.TextColor
 import com.example.testapp.theme.UnselectedChipColor
 import com.example.testapp.theme.UnselectedChipTextColor
@@ -123,7 +124,7 @@ fun ExercisesScreen(
             }
 
             Text(
-                text = "11 mins - 11 workouts",
+                text = "60 mins - 15 workouts",
                 fontSize = MaterialTheme.typography.body1.fontSize,
                 fontWeight = FontWeight.Bold,
                 color = Color.Black.copy(alpha = 0.8f),
@@ -146,9 +147,9 @@ fun ExercisesScreen(
             ) {
                 items(count = itemList.size, itemContent = {
                     ExerciseCard(
-                        exerciseTitle = itemList[it].exerciseTitle,
-                        numberOfReps = itemList[it].numberOfReps,
-                        imageId = itemList[it].imageId,
+                        exerciseTitle = itemList[it].exerciseName,
+                        numberOfReps = itemList[it].exerciseRep,
+                        imageId = itemList[it].gif,
                     )
                     Divider(
                         color = MaterialTheme.colors.onSurface.copy(alpha = 0.2f),
@@ -230,44 +231,79 @@ fun ExerciseCard(
 
 val itemList =
     mutableStateListOf(
-        ExerciseCardDetails(
-            imageId = R.drawable.ic_fullbody,
-            exerciseTitle = "Jumping Jacks",
-            numberOfReps = "x16"
+        SingleExerciseDataClass(
+            gif = R.drawable.placeholder,
+            exerciseName = "Mountain Climb",
+            exerciseRep = "x16"
         ),
-        ExerciseCardDetails(
-            imageId = R.drawable.ic_fullbody,
-            exerciseTitle = "Incline Push-ups",
-            numberOfReps = "x12"
+        SingleExerciseDataClass(
+            gif = R.drawable.placeholder,
+            exerciseName = "Half Crunches",
+            exerciseRep = "x20"
         ),
-        ExerciseCardDetails(
-            imageId = R.drawable.ic_fullbody,
-            exerciseTitle = "Knee Push-ups",
-            numberOfReps = "x12"
+        SingleExerciseDataClass(
+            gif = R.drawable.placeholder,
+            exerciseName = "Dips",
+            exerciseRep = "x24"
         ),
-        ExerciseCardDetails(
-            imageId = R.drawable.ic_fullbody,
-            exerciseTitle = "push-ups",
-            numberOfReps = "x18"
+        SingleExerciseDataClass(
+            gif = R.drawable.placeholder,
+            exerciseName = "Alternate Crunhes",
+            exerciseRep = "x16"
         ),
-        ExerciseCardDetails(
-            imageId = R.drawable.ic_fullbody,
-            exerciseTitle = "Jumping Jacks",
-            numberOfReps = "x16"
+        SingleExerciseDataClass(
+            gif = R.drawable.placeholder,
+            exerciseName = "Leg Raises",
+            exerciseRep = "x12"
         ),
-        ExerciseCardDetails(
-            imageId = R.drawable.ic_fullbody,
-            exerciseTitle = "Incline Push-ups",
-            numberOfReps = "x12"
+        SingleExerciseDataClass(
+            gif = R.drawable.placeholder,
+            exerciseName = "Knee Touch",
+            exerciseRep = "x32"
         ),
-        ExerciseCardDetails(
-            imageId = R.drawable.ic_fullbody,
-            exerciseTitle = "Knee Push-ups",
-            numberOfReps = "x12"
+        SingleExerciseDataClass(
+            gif = R.drawable.placeholder,
+            exerciseName = "Half V-ups",
+            exerciseRep = "x10"
         ),
-        ExerciseCardDetails(
-            imageId = R.drawable.ic_fullbody,
-            exerciseTitle = "push-ups",
-            numberOfReps = "x18"
+        SingleExerciseDataClass(
+            gif = R.drawable.placeholder,
+            exerciseName = "Full Crunches",
+            exerciseRep = "x16"
         ),
+        SingleExerciseDataClass(
+            gif = R.drawable.placeholder,
+            exerciseName = "Toe Touch",
+            exerciseRep = "x12"
+        ),
+        SingleExerciseDataClass(
+            gif = R.drawable.placeholder,
+            exerciseName = "Push Up hand raises",
+            exerciseRep = "x16"
+        ),
+        SingleExerciseDataClass(
+            gif = R.drawable.placeholder,
+            exerciseName = "Plank Leg Raise",
+            exerciseRep = "x16"
+        ),
+        SingleExerciseDataClass(
+            gif = R.drawable.placeholder,
+            exerciseName = "Russian Twist",
+            exerciseRep = "x32"
+        ),
+        SingleExerciseDataClass(
+            gif = R.drawable.placeholder,
+            exerciseName = "Kegel",
+            exerciseRep = "x16"
+        ),
+        SingleExerciseDataClass(
+            gif = R.drawable.placeholder,
+            exerciseName = "Full V-ups",
+            exerciseRep = "x12"
+        ),
+        SingleExerciseDataClass(
+            gif = R.drawable.placeholder,
+            exerciseName = "Standing Toe Touch",
+            exerciseRep = "x16"
+        )
     )

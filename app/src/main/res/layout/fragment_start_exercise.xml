@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".startexercise.StartExerciseFragment">
 
 
@@ -104,9 +104,11 @@
         app:iconGravity="textStart"
         android:textAllCaps="false"
         android:textSize="16sp"
+        android:layout_marginTop="32dp"
         android:layout_marginBottom="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/skipButton"
+        app:layout_constraintTop_toBottomOf="@id/doneButton"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 

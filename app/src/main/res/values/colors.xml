@@ -22,4 +22,5 @@
     <color name="progress2_background">#2b3241</color>
     <color name="screen_background_dark">#202124</color>
     <color name="red">#FF0000</color>
+    <color name="statusBar">#FFFFFF</color>
 </resources>

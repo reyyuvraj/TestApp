@@ -37,6 +37,8 @@ import com.example.testapp.theme.CardEndColorColor
 import com.example.testapp.theme.CardStartColor
 import com.example.testapp.theme.TextColor
 import com.example.testapp.theme.UnselectedChipColor
+import com.example.testapp.theme.progressBarFilled
+import com.example.testapp.theme.progressBarUnFilled
 import java.util.Timer
 import java.util.TimerTask
 
@@ -88,7 +90,7 @@ fun RestScreen(
                 .fillMaxWidth()
                 .height(48.dp),
             colors = ButtonDefaults.buttonColors(
-                backgroundColor = Color.Blue,
+                backgroundColor = progressBarFilled,
                 contentColor = Color.White
             ),
             shape = RoundedCornerShape(18.dp)
@@ -140,7 +142,7 @@ fun TimerScreen(
 
         Canvas(modifier = Modifier.size(200.dp)) {
             drawArc(
-                color = Color.LightGray,
+                color = progressBarUnFilled,
                 -90f,
                 360F,
                 useCenter = false,
@@ -149,7 +151,7 @@ fun TimerScreen(
                 )
             )
             drawArc(
-                color = Color.DarkGray,
+                color = progressBarFilled,
                 -90f,
                 360 * remainingTime.toFloat()/ restTime.toInt(),
                 useCenter = false,

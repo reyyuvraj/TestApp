@@ -14,7 +14,11 @@
         android:id="@+id/homeFragment"
         android:name="com.example.testapp.home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_infoBottomSheetFragment"
+            app:destination="@id/infoBottomSheetFragment" />
+    </fragment>
     <fragment
         android:id="@+id/leaderboardFragment"
         android:name="com.example.testapp.leaderboard.LeaderboardFragment"
@@ -60,4 +64,18 @@
             app:popUpToInclusive="true"
             app:popUpTo="@id/startExerciseFragment"/>
     </fragment>
+    <dialog
+        android:id="@+id/infoBottomSheetFragment"
+        android:name="com.example.testapp.util.InfoBottomSheetFragment"
+        android:label="info_bottom_sheet"
+        tools:layout="@layout/info_bottom_sheet" >
+        <argument
+            android:name="title"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="info"
+            app:argType="string"
+            app:nullable="true" />
+    </dialog>
 </navigation>

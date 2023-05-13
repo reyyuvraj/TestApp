@@ -10,5 +10,16 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <!--Screen background color-->
-    <color name="nero">#292929</color>
+    <color name="nero">#2a2b2e</color>
+
+    <color name="summer_sky">#8ab4f9</color>
+    <color name="turquoise">#00dcb0</color>
+    <color name="gray">#808080</color>
+    <color name="item_gray">#353639</color>
+    <color name="gold">#FFD700</color>
+
+    <color name="progress1_background">#1c3a37</color>
+    <color name="progress2_background">#2b3241</color>
+    <color name="screen_background_dark">#202124</color>
+    <color name="red">#FF0000</color>
 </resources>

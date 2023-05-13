@@ -27,6 +27,26 @@
     <string name="follow_curated_playlists">Follow along with curated playlists to help you stay healthy from home</string>
     <string name="learn_about_sleep">Learn which factor sleep needs, and how to find the right amount for you</string>
     <string name="how_much_sleep_you_need">How much sleep you need</string>
+    <string name="_54">54</string>
+    <string name="_72">72</string>
+    <string name="apr_8">Apr 8</string>
+    <string name="weight">Weight</string>
+    <string name="heart_points">Heart Points</string>
+    <string name="steps_count">Steps Count</string>
+    <string name="youtube_logo">Youtube logo</string>
+    <string name="playlist">Playlist</string>
+    <string name="card_logo">Card logo</string>
+    <string name="heart_pts">Heart Pts</string>
+    <string name="steps">Steps</string>
+    <string name="locked_unlocked_league">Locked/unlocked League</string>
+    <string name="current_league">Current League</string>
+    <string name="_18">18</string>
+    <string name="profile_photo">Profile Photo</string>
+    <string name="reyy">reyy</string>
+    <string name="_54_xp">54 XP</string>
+    <string name="amethyst_league">Amethyst League</string>
+    <string name="top_7_advance_to_next_league">Top 7 Advance to next league</string>
+    <string name="_6_days">6 days</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

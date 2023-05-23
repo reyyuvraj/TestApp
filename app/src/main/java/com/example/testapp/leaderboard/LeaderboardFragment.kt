@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.testapp.R
+import com.example.testapp.leaderboard.adapter.HorizontalSpaceItemDecoration
 import com.example.testapp.leaderboard.adapter.LeagueAdapter
 import com.example.testapp.leaderboard.adapter.RankingAdapter
 import com.example.testapp.leaderboard.model.LeagueData
@@ -40,4 +41,10 @@ class LeaderboardFragment : Fragment(R.layout.fragment_leaderboard) {
             visibility = View.GONE
         }
     }
+
+    /*private fun calculateHorizontalSpacing(itemCount: Int, availableWidth: Int = resources.displayMetrics.widthPixels): Int {
+        val totalItemWidth = (itemCount - 1) * 100
+        val remainingSpace = availableWidth - totalItemWidth
+        return remainingSpace / (itemCount - 1)
+    }*/
 }

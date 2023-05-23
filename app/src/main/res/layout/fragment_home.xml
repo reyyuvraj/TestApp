@@ -191,14 +191,42 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/fh_goals_score_txt" />
 
-                <ImageView
-                    android:id="@+id/fh_goals_org_logo"
-                    android:layout_width="54dp"
-                    android:layout_height="36dp"
-                    android:contentDescription="@string/logo"
-                    app:layout_constraintBottom_toBottomOf="@id/fh_week_goals_achieved_txt"
+                <!--<androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/fh_goals_rv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/fh_week_goals_achieved_txt" />
+                    app:layout_constraintStart_toEndOf="@id/fh_week_goals_achieved_txt"
+                    app:layout_constraintTop_toBottomOf="@id/fh_goals_score_txt" />-->
+
+                <LinearLayout
+                    android:id="@+id/fh_goals_progress_ll"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/fh_week_goals_achieved_txt"
+                    app:layout_constraintTop_toBottomOf="@id/fh_goals_score_txt">
+
+                    <include layout="@layout/circular_progress_item" />
+
+                    <include layout="@layout/circular_progress_item" />
+
+                    <include layout="@layout/circular_progress_item" />
+
+                    <include layout="@layout/circular_progress_item" />
+
+                    <include layout="@layout/circular_progress_item" />
+
+                    <include layout="@layout/circular_progress_item" />
+
+                    <include layout="@layout/circular_progress_item" />
+
+                </LinearLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -344,16 +372,16 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@id/fh_weight_txt" />
 
-                <ImageView
-                    android:id="@+id/fh_weight_card_cancel"
-                    android:layout_width="16dp"
-                    android:layout_height="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:contentDescription="@string/remove_card"
-                    android:src="@drawable/ic_remove_cross"
-                    app:layout_constraintBottom_toBottomOf="@id/fh_weight_txt"
-                    app:layout_constraintEnd_toStartOf="@id/fh_weight_card_arrow"
-                    app:layout_constraintTop_toTopOf="@id/fh_weight_txt" />
+                <!--                <ImageView
+                                    android:id="@+id/fh_weight_card_cancel"
+                                    android:layout_width="16dp"
+                                    android:layout_height="16dp"
+                                    android:layout_marginEnd="16dp"
+                                    android:contentDescription="@string/remove_card"
+                                    android:src="@drawable/ic_remove_cross"
+                                    app:layout_constraintBottom_toBottomOf="@id/fh_weight_txt"
+                                    app:layout_constraintEnd_toStartOf="@id/fh_weight_card_arrow"
+                                    app:layout_constraintTop_toTopOf="@id/fh_weight_txt" />-->
 
                 <TextView
                     android:id="@+id/fh_weight_span_txt"
@@ -437,13 +465,15 @@
 
                 <TextView
                     android:id="@+id/fh_sleep_txt"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="4dp"
+                    android:gravity="start"
                     android:text="@string/how_much_sleep_you_need"
                     android:textColor="@color/white"
                     android:textSize="20sp"
                     app:layout_constraintBottom_toTopOf="@id/fh_sleep_org_logo"
+                    app:layout_constraintEnd_toStartOf="@id/fh_sleep_card_arrow"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -457,16 +487,16 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@id/fh_sleep_txt" />
 
-                <ImageView
-                    android:id="@+id/fh_sleep_card_cancel"
-                    android:layout_width="16dp"
-                    android:layout_height="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:contentDescription="@string/remove_card"
-                    android:src="@drawable/ic_remove_cross"
-                    app:layout_constraintBottom_toBottomOf="@id/fh_sleep_txt"
-                    app:layout_constraintEnd_toStartOf="@id/fh_sleep_card_arrow"
-                    app:layout_constraintTop_toTopOf="@id/fh_sleep_txt" />
+                <!--                <ImageView
+                                    android:id="@+id/fh_sleep_card_cancel"
+                                    android:layout_width="16dp"
+                                    android:layout_height="16dp"
+                                    android:layout_marginEnd="16dp"
+                                    android:contentDescription="@string/remove_card"
+                                    android:src="@drawable/ic_remove_cross"
+                                    app:layout_constraintBottom_toBottomOf="@id/fh_sleep_txt"
+                                    app:layout_constraintEnd_toStartOf="@id/fh_sleep_card_arrow"
+                                    app:layout_constraintTop_toTopOf="@id/fh_sleep_txt" />-->
 
                 <ImageView
                     android:id="@+id/fh_sleep_org_logo"
@@ -537,15 +567,15 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <ImageView
-                    android:id="@+id/fh_fit_card_cancel"
-                    android:layout_width="16dp"
-                    android:layout_height="16dp"
-                    android:contentDescription="@string/remove_card"
-                    android:src="@drawable/ic_remove_cross"
-                    app:layout_constraintBottom_toBottomOf="@id/fh_fit_txt"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/fh_fit_txt" />
+                <!--                <ImageView
+                                    android:id="@+id/fh_fit_card_cancel"
+                                    android:layout_width="16dp"
+                                    android:layout_height="16dp"
+                                    android:contentDescription="@string/remove_card"
+                                    android:src="@drawable/ic_remove_cross"
+                                    app:layout_constraintBottom_toBottomOf="@id/fh_fit_txt"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintTop_toTopOf="@id/fh_fit_txt" />-->
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/fh_fit_rv"

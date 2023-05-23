@@ -12,7 +12,11 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.testapp.R
+import com.example.testapp.home.adapter.ProgressAdapter
+import com.example.testapp.home.model.ProgressData
 import com.google.android.material.card.MaterialCardView
 import com.mikhaellopez.circularprogressbar.CircularProgressBar
 
@@ -30,6 +34,23 @@ class HomeFragment : Fragment(R.layout.fragment_home), SensorEventListener {
         resetSteps()
         setUpViews()
         setUpListeners()
+
+        /*val progressList = listOf(
+            ProgressData(progress1 = 54, progress2 = 36),
+            ProgressData(progress1 = 36, progress2 = 18),
+            ProgressData(progress1 = 18, progress2 = 27),
+            ProgressData(progress1 = 27, progress2 = 45),
+            ProgressData(progress1 = 45, progress2 = 63),
+            ProgressData(progress1 = 63, progress2 = 81),
+            ProgressData(progress1 = 81, progress2 = 54)
+        )
+        val recyclerView = view.findViewById<RecyclerView>(R.id.fh_goals_rv)
+        recyclerView?.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        val adapter = ProgressAdapter()
+        recyclerView?.adapter = adapter
+        adapter.setData(progressList)*/
+
         sensorManager = activity?.getSystemService(Context.SENSOR_SERVICE) as SensorManager
     }
 

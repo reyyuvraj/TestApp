@@ -3,16 +3,13 @@ package com.example.testapp
 import android.os.Build
 import android.os.Bundle
 import android.view.WindowManager
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.compose.ui.graphics.Color
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.example.testapp.databinding.ActivityMainBinding
 import np.com.susanthapa.curved_bottom_navigation.CbnMenuItem
 import np.com.susanthapa.curved_bottom_navigation.CurvedBottomNavigationView
-import timber.log.Timber
 import java.io.BufferedReader
 import java.io.IOException
 import java.io.InputStreamReader
@@ -53,8 +50,8 @@ class MainActivity : AppCompatActivity() {
                 R.id.leaderboardFragment
             ),
             CbnMenuItem(
-                R.drawable.ic_bell,
-                R.drawable.avd_bell,
+                R.drawable.ic_dumbbell,
+                R.drawable.avd_dumbbell,
                 R.id.workoutFragment
             ),
             CbnMenuItem(

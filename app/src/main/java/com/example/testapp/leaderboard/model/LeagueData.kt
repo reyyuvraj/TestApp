@@ -26,13 +26,13 @@ class LeagueData {
             ),
             LeagueModel(
                 4,
-                R.drawable.ic_locked,
+                R.drawable.ruby,
                 "league 4",
                 false
             ),
             LeagueModel(
                 5,
-                R.drawable.ic_locked,
+                R.drawable.diamond,
                 "league 5",
                 false
             )

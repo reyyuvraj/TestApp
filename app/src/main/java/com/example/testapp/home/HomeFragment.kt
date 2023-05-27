@@ -1,13 +1,15 @@
 package com.example.testapp.home
 
 import android.content.Context
+import android.content.Intent
 import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
 import android.hardware.SensorManager
+import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.View
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -15,12 +17,14 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.testapp.R
-import com.example.testapp.home.adapter.ProgressAdapter
-import com.example.testapp.home.model.ProgressData
+import com.example.testapp.home.adapter.FitAdapter
+import com.example.testapp.home.model.WorkoutItem
 import com.google.android.material.card.MaterialCardView
 import com.mikhaellopez.circularprogressbar.CircularProgressBar
+import timber.log.Timber
 
-class HomeFragment : Fragment(R.layout.fragment_home), SensorEventListener {
+class HomeFragment : Fragment(R.layout.fragment_home), SensorEventListener,
+    FitAdapter.FitInterface {
 
     private var sensorManager: SensorManager? = null
     private var running = false
@@ -50,6 +54,20 @@ class HomeFragment : Fragment(R.layout.fragment_home), SensorEventListener {
         val adapter = ProgressAdapter()
         recyclerView?.adapter = adapter
         adapter.setData(progressList)*/
+
+        val workoutList = listOf(
+            WorkoutItem(1, "Workout", R.drawable.ic_weightlifting),
+            WorkoutItem(2, "Yoga", R.drawable.ic_weightlifting),
+            WorkoutItem(3, "Dance", R.drawable.ic_weightlifting),
+            WorkoutItem(4, "Meditate", R.drawable.ic_weightlifting),
+            WorkoutItem(5, "Sleep", R.drawable.ic_weightlifting)
+        )
+        val recyclerView = view.findViewById<RecyclerView>(R.id.fh_fit_rv)
+        recyclerView?.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        val adapter = FitAdapter(this)
+        recyclerView?.adapter = adapter
+        adapter.setData(workoutList)
 
         sensorManager = activity?.getSystemService(Context.SENSOR_SERVICE) as SensorManager
     }
@@ -109,6 +127,9 @@ class HomeFragment : Fragment(R.layout.fragment_home), SensorEventListener {
                     title, info
                 )
             )
+        }
+        view?.findViewById<ImageView>(R.id.fh_sleep_card_arrow)?.setOnClickListener {
+            openBrowser("https://aasm.org/")
         }
         view?.findViewById<MaterialCardView>(R.id.fh_fit_card)?.setOnClickListener {
             val title = "Stay fit"
@@ -179,11 +200,41 @@ class HomeFragment : Fragment(R.layout.fragment_home), SensorEventListener {
     private fun loadData() {
         val sharedPreferences = activity?.getSharedPreferences("myPrefs", Context.MODE_PRIVATE)
         val savedNumber = sharedPreferences?.getFloat("key1", 0f)
-        Log.d("MainActivity", "$savedNumber")
+        Timber.tag("MainActivity").d("data = $savedNumber")
         previousTotalSteps = savedNumber ?: 0f
+    }
+
+    private fun openBrowser(url: String = "") {
+        val intent = Intent(Intent.ACTION_VIEW)
+        val subscriptionURL = String.format(url)
+        intent.data = Uri.parse(subscriptionURL)
+        startActivity(intent)
     }
 
     override fun onAccuracyChanged(p0: Sensor?, p1: Int) {
         // not to be implemented yet
+    }
+
+    override fun itemClicked(id: Int) {
+        when (id) {
+            1 -> {
+                openBrowser("https://youtube.com/playlist?list=PLbpi6ZahtOH4OqtS9rvYW_jf-agPEMEsP")
+            }
+            2 -> {
+                openBrowser("https://youtube.com/playlist?list=PLbpi6ZahtOH7ywA3QW1TzGTdke3fs_a3M")
+            }
+            3 -> {
+                openBrowser("https://youtube.com/playlist?list=PLbpi6ZahtOH5EepHG_-wgELWR5KeOaLj0")
+            }
+            4 -> {
+                openBrowser("https://youtube.com/playlist?list=PLbpi6ZahtOH5DkgyNn-zbBWf3CmYT-dRt")
+            }
+            5 -> {
+                openBrowser("https://youtube.com/playlist?list=PLbpi6ZahtOH5g4TSKKX4TfI-TaRhH8q8d")
+            }
+            else -> {
+                openBrowser("https://youtube.com/playlist?list=PLbpi6ZahtOH5EepHG_-wgELWR5KeOaLj0")
+            }
+        }
     }
 }

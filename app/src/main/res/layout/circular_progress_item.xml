@@ -18,7 +18,7 @@
         app:cpb_round_border="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/cpi_weekday" />
 
     <com.mikhaellopez.circularprogressbar.CircularProgressBar
         android:id="@+id/cpi_circularProgressBar2"
@@ -32,6 +32,19 @@
         app:cpb_progressbar_width="2dp"
         app:cpb_round_border="true"
         app:layout_constraintBottom_toBottomOf="@id/cpi_circularProgressBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cpi_weekday" />
+
+    <TextView
+        android:id="@+id/cpi_weekday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="8dp"
+        android:text="M"
+        android:textColor="@color/white"
+        android:textSize="8sp"
+        app:layout_constraintBottom_toTopOf="@id/cpi_circularProgressBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

@@ -96,6 +96,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
                 android:text="@string/heart_pts"
                 android:textColor="@color/white"
                 android:textSize="16sp"
@@ -388,6 +389,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="4dp"
+                    android:layout_marginStart="16dp"
                     android:text="@string/jan_16_apr_9"
                     android:textColor="@color/gray"
                     android:textSize="16sp"

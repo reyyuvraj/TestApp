@@ -18,6 +18,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.testapp.R
 import com.example.testapp.home.adapter.FitAdapter
+import com.example.testapp.home.adapter.ProgressAdapter
+import com.example.testapp.home.model.ProgressData
 import com.example.testapp.home.model.WorkoutItem
 import com.google.android.material.card.MaterialCardView
 import com.mikhaellopez.circularprogressbar.CircularProgressBar
@@ -39,21 +41,21 @@ class HomeFragment : Fragment(R.layout.fragment_home), SensorEventListener,
         setUpViews()
         setUpListeners()
 
-        /*val progressList = listOf(
-            ProgressData(progress1 = 54, progress2 = 36),
-            ProgressData(progress1 = 36, progress2 = 18),
-            ProgressData(progress1 = 18, progress2 = 27),
-            ProgressData(progress1 = 27, progress2 = 45),
-            ProgressData(progress1 = 45, progress2 = 63),
-            ProgressData(progress1 = 63, progress2 = 81),
-            ProgressData(progress1 = 81, progress2 = 54)
+        val progressList = listOf(
+            ProgressData(progress1 = 54, progress2 = 36, weekday = "M"),
+            ProgressData(progress1 = 36, progress2 = 18, weekday = "T"),
+            ProgressData(progress1 = 18, progress2 = 27, weekday = "W"),
+            ProgressData(progress1 = 1, progress2 = 1, weekday = "T"),
+            ProgressData(progress1 = 1, progress2 = 1, weekday = "F"),
+            ProgressData(progress1 = 1, progress2 = 1, weekday = "S"),
+            ProgressData(progress1 = 1, progress2 = 1, weekday = "S")
         )
-        val recyclerView = view.findViewById<RecyclerView>(R.id.fh_goals_rv)
-        recyclerView?.layoutManager =
+        val pRecyclerView = view.findViewById<RecyclerView>(R.id.fh_goals_rv)
+        pRecyclerView?.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        val adapter = ProgressAdapter()
-        recyclerView?.adapter = adapter
-        adapter.setData(progressList)*/
+        val pAdapter = ProgressAdapter()
+        pRecyclerView?.adapter = pAdapter
+        pAdapter.setData(progressList)
 
         val workoutList = listOf(
             WorkoutItem(1, "Workout", R.drawable.ic_weightlifting),

@@ -3,6 +3,7 @@ package com.example.testapp.home.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.testapp.R
 import com.example.testapp.home.model.ProgressData
@@ -17,6 +18,7 @@ class ProgressAdapter : RecyclerView.Adapter<ProgressAdapter.ProgressViewHolder>
             itemView.findViewById(R.id.cpi_circularProgressBar)
         val circularProgressBar2: CircularProgressBar =
             itemView.findViewById(R.id.cpi_circularProgressBar2)
+        val weekday: TextView = itemView.findViewById(R.id.cpi_weekday)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProgressViewHolder {
@@ -33,6 +35,7 @@ class ProgressAdapter : RecyclerView.Adapter<ProgressAdapter.ProgressViewHolder>
         val progressData = progressList[position]
         holder.circularProgressBar.setProgressWithAnimation(progressData.progress1.toFloat())
         holder.circularProgressBar2.setProgressWithAnimation(progressData.progress2.toFloat())
+        holder.weekday.text = progressData.weekday
     }
 
     fun setData(list: List<ProgressData>) {

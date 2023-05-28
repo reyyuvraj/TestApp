@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/screen_background_dark"
+    android:background="#f9f9fb"
     tools:context=".home.HomeFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -89,7 +89,7 @@
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:layout_marginHorizontal="8dp"
+                android:layout_marginHorizontal="4dp"
                 android:contentDescription="@string/heart_points"
                 android:src="@drawable/ic_heart" />
 
@@ -98,14 +98,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
                 android:text="@string/heart_pts"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:layout_marginHorizontal="8dp"
+                android:layout_marginHorizontal="4dp"
                 android:contentDescription="@string/steps_count"
                 android:src="@drawable/ic_steps" />
 
@@ -113,7 +113,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/steps"
-                android:textColor="@color/white"
+                android:textColor="@color/text_color"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -133,7 +133,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/nero"
+                android:background="@color/card_background"
                 android:padding="16dp">
 
                 <TextView
@@ -142,7 +142,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="4dp"
                     android:text="@string/your_daily_goals"
-                    android:textColor="@color/white"
+                    android:textColor="@color/text_color"
                     android:textSize="20sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -175,7 +175,7 @@
                     android:layout_marginTop="12dp"
                     android:layout_marginBottom="4dp"
                     android:text="@string/_0_7"
-                    android:textColor="@color/summer_sky"
+                    android:textColor="@color/deep_blue"
                     android:textSize="24sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/fh_goals_span_txt" />
@@ -187,7 +187,7 @@
                     android:layout_marginVertical="4dp"
                     android:layout_marginEnd="16dp"
                     android:text="@string/achieved"
-                    android:textColor="@color/summer_sky"
+                    android:textColor="@color/deep_blue"
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/fh_goals_score_txt" />
@@ -213,7 +213,14 @@
                     app:layout_constraintStart_toEndOf="@id/fh_week_goals_achieved_txt"
                     app:layout_constraintTop_toBottomOf="@id/fh_goals_score_txt">
 
-                    <include layout="@layout/circular_progress_item" />
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/fh_goals_rv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:orientation="horizontal" />
+
+                    <!--<include layout="@layout/circular_progress_item" />
 
                     <include layout="@layout/circular_progress_item" />
 
@@ -225,7 +232,7 @@
 
                     <include layout="@layout/circular_progress_item" />
 
-                    <include layout="@layout/circular_progress_item" />
+                    <include layout="@layout/circular_progress_item" />-->
 
                 </LinearLayout>
 
@@ -245,7 +252,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/nero"
+                android:background="@color/card_background"
                 android:padding="16dp">
 
                 <TextView
@@ -254,7 +261,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="4dp"
                     android:text="@string/your_weekly_target"
-                    android:textColor="@color/white"
+                    android:textColor="@color/text_color"
                     android:textSize="20sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -330,7 +337,7 @@
             android:gravity="start"
             android:text="@string/trends"
             android:textAllCaps="true"
-            android:textColor="@color/white"
+            android:textColor="@color/text_color"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -349,7 +356,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/nero"
+                android:background="@color/card_background"
                 android:padding="16dp">
 
                 <TextView
@@ -358,7 +365,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="4dp"
                     android:text="@string/weight"
-                    android:textColor="@color/white"
+                    android:textColor="@color/text_color"
                     android:textSize="20sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -389,7 +396,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="4dp"
-                    android:layout_marginStart="16dp"
                     android:text="@string/jan_16_apr_9"
                     android:textColor="@color/gray"
                     android:textSize="16sp"
@@ -403,7 +409,7 @@
                     android:layout_marginTop="12dp"
                     android:layout_marginBottom="4dp"
                     android:text="@string/_69kg"
-                    android:textColor="@color/gray"
+                    android:textColor="@color/deep_blue"
                     android:textSize="24sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/fh_weight_span_txt" />
@@ -415,7 +421,7 @@
                     android:layout_marginVertical="4dp"
                     android:layout_marginEnd="16dp"
                     android:text="@string/apr_8"
-                    android:textColor="@color/gray"
+                    android:textColor="@color/deep_blue"
                     android:textSize="16sp"
                     app:layout_constraintEnd_toStartOf="@id/fh_weight_org_logo"
                     app:layout_constraintStart_toStartOf="parent"
@@ -442,7 +448,7 @@
             android:gravity="start"
             android:text="@string/discover"
             android:textAllCaps="true"
-            android:textColor="@color/white"
+            android:textColor="@color/text_color"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -462,7 +468,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/nero"
+                android:background="@color/card_background"
                 android:padding="16dp">
 
                 <TextView
@@ -472,7 +478,7 @@
                     android:layout_marginVertical="4dp"
                     android:gravity="start"
                     android:text="@string/how_much_sleep_you_need"
-                    android:textColor="@color/white"
+                    android:textColor="@color/text_color"
                     android:textSize="20sp"
                     app:layout_constraintBottom_toTopOf="@id/fh_sleep_org_logo"
                     app:layout_constraintEnd_toStartOf="@id/fh_sleep_card_arrow"
@@ -548,6 +554,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginVertical="8dp"
+            app:cardElevation="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/fh_sleep_card">
@@ -555,7 +562,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/nero"
+                android:background="@color/card_background"
                 android:padding="16dp">
 
                 <TextView
@@ -564,7 +571,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="4dp"
                     android:text="@string/stay_fit_with_me"
-                    android:textColor="@color/white"
+                    android:textColor="@color/text_color"
                     android:textSize="20sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />

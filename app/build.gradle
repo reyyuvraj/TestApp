@@ -80,4 +80,7 @@ dependencies {
 
     //Timber
     implementation 'com.jakewharton.timber:timber:4.7.1'
+
+    // Number Picker
+    implementation 'io.github.ShawnLin013:number-picker:2.4.13'
 }

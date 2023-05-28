@@ -78,4 +78,9 @@
             app:argType="string"
             app:nullable="true" />
     </dialog>
+    <fragment
+        android:id="@+id/heightFragment"
+        android:name="com.example.testapp.startingscreens.HeightFragment"
+        android:label="fragment_height"
+        tools:layout="@layout/fragment_height" />
 </navigation>

@@ -102,7 +102,7 @@ class LoginFragment : Fragment() {
                     }
                     if(signInUIState.token!=null){
                         // Save Token Here
-
+                        tokenManager.saveToken(signInUIState.token)
                         val intent = Intent(requireActivity(), MainActivity::class.java)
                         startActivity(intent)
                         requireActivity().finish()

@@ -6,6 +6,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.testapp.model.signin.SignInRequest
+import com.example.testapp.model.signup.SignUpRequest
 import com.example.testapp.repository.AuthRepository
 import com.example.testapp.util.Helper
 import com.example.testapp.util.handleApi
@@ -30,7 +31,7 @@ class LandingScreenViewModel @Inject constructor(
     private val _signInUiState = MutableStateFlow(SignInScreenState())
     val signInUiState = _signInUiState.asStateFlow()
 
-    fun signIn(authRequestSignup: SignInRequest) =
+    fun signIn(authRequestSignin: SignInRequest) =
         viewModelScope.launch(Dispatchers.Main) {
             _signInUiState.update {
                 it.copy(
@@ -38,7 +39,7 @@ class LandingScreenViewModel @Inject constructor(
                 )
             }
             handleApi {
-                authRepository.signIn(authRequestSignup)
+                authRepository.signIn(authRequestSignin)
             }.onSuccess { response ->
                 _signInUiState.update {
                     it.copy(
@@ -62,9 +63,51 @@ class LandingScreenViewModel @Inject constructor(
             }
         }
 
+    private val _signUpUiState = MutableStateFlow(SignUpScreenState())
+    val signUpUiState = _signUpUiState.asStateFlow()
+
+    fun signUp(authRequestSignup: SignUpRequest) =
+        viewModelScope.launch(Dispatchers.Main) {
+            _signUpUiState.update {
+                it.copy(
+                    loading = true
+                )
+            }
+            handleApi {
+                authRepository.signUp(authRequestSignup)
+            }.onSuccess { response ->
+                _signUpUiState.update {
+                    it.copy(
+                        loading = false,
+                        token = response.token
+                    )
+                }
+            }.onError { code, message ->
+                _signUpUiState.update {
+                    it.copy(
+                        loading = false,
+                        message = message
+                    )
+                }
+            }.onException {
+                _signUpUiState.update {
+                    it.copy(
+                        loading = false
+                    )
+                }
+            }
+        }
+
     fun messageAlreadyDisplayed() {
         viewModelScope.launch {
             _signInUiState.update {
+                it.copy(
+                    message = null
+                )
+            }
+        }
+        viewModelScope.launch {
+            _signUpUiState.update {
                 it.copy(
                     message = null
                 )
@@ -116,6 +159,12 @@ class LandingScreenViewModel @Inject constructor(
 }
 
 data class SignInScreenState(
+    val loading: Boolean = false,
+    val message: String? = null,
+    val token: String? = null
+)
+
+data class SignUpScreenState(
     val loading: Boolean = false,
     val message: String? = null,
     val token: String? = null

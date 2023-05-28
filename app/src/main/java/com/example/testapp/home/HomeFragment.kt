@@ -74,14 +74,14 @@ class HomeFragment : Fragment(R.layout.fragment_home), SensorEventListener,
 
     private fun setUpViews() {
         view?.findViewById<TextView>(R.id.fh_progress2_text)?.text =
-            previousTotalSteps.toInt().toString()
+            (previousTotalSteps.toInt() / 150).toString()
         view?.findViewById<TextView>(R.id.fh_progress1_text)?.text =
-            (previousTotalSteps.toInt() / 10).toString()
+            (previousTotalSteps.toInt() / (150)).toString()
         view?.findViewById<CircularProgressBar>(R.id.fh_circularProgressBar2)?.apply {
-            setProgressWithAnimation(previousTotalSteps)
+            setProgressWithAnimation(previousTotalSteps / 150)
         }
         view?.findViewById<CircularProgressBar>(R.id.fh_circularProgressBar)?.apply {
-            setProgressWithAnimation(previousTotalSteps / 10)
+            setProgressWithAnimation(previousTotalSteps / 150)
         }
         view?.findViewById<TextView>(R.id.log_tv)?.apply {
             visibility = View.GONE
@@ -159,16 +159,19 @@ class HomeFragment : Fragment(R.layout.fragment_home), SensorEventListener,
     override fun onSensorChanged(p0: SensorEvent?) {
         if (running) {
             totalSteps = p0!!.values[0]
-            val currentSteps = totalSteps.toInt() - previousTotalSteps.toInt()
+            val currentSteps = (totalSteps.toInt() - previousTotalSteps.toInt()) / 150
             val stepsTxt = view?.findViewById<TextView>(R.id.fh_progress2_text)
-            stepsTxt?.text = currentSteps.toString()
+            stepsTxt?.text = (totalSteps.toInt() - previousTotalSteps.toInt()).toString()
+            view?.findViewById<TextView>(R.id.fh_progress1_text)?.text = currentSteps.toString()
 
             view?.findViewById<CircularProgressBar>(R.id.fh_circularProgressBar2)?.apply {
                 setProgressWithAnimation(currentSteps.toFloat())
             }
             view?.findViewById<CircularProgressBar>(R.id.fh_circularProgressBar)?.apply {
-                setProgressWithAnimation(currentSteps.toFloat() / 10)
+                setProgressWithAnimation(currentSteps.toFloat())
             }
+            view?.findViewById<TextView>(R.id.fh_week_score_txt)?.text =
+                String.format("%s of 150", (currentSteps).toString())
         }
     }
 

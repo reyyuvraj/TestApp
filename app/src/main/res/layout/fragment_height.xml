@@ -72,7 +72,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:fontFamily="@font/poppins"
         android:letterSpacing="0.04"
         android:textStyle="bold"
@@ -109,7 +109,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:fontFamily="@font/poppins"
         android:letterSpacing="0.04"
         android:text="Enter your daily step goal"
@@ -149,22 +149,40 @@
             android:textCursorDrawable="@drawable/custom_cursor" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/nextButton"
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginRight="32dp"
-        android:background="@drawable/layout_button"
-        android:fontFamily="@font/poppins"
-        android:text="Get Started"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        app:backgroundTint="@null"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/steps_in" />
+        android:layout_height="wrap_content"
+        android:paddingBottom="12dp"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/circularPBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:indeterminate="true"
+            android:visibility="gone"
+            app:indicatorColor="@color/primaryColor" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/nextButton"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="26dp"
+            android:layout_marginRight="32dp"
+            android:background="@drawable/layout_button"
+            android:fontFamily="@font/poppins"
+            android:text="Get Started"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:backgroundTint="@null" />
+
+    </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

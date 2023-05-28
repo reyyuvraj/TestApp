@@ -7,7 +7,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.testapp.model.signin.SignInRequest
 import com.example.testapp.model.signup.SignUpRequest
+import com.example.testapp.model.userdetails.Details
+import com.example.testapp.model.userdetails.UserDetailsRequest
 import com.example.testapp.repository.AuthRepository
+import com.example.testapp.repository.MainRepository
 import com.example.testapp.util.Helper
 import com.example.testapp.util.handleApi
 import com.example.testapp.util.onError
@@ -24,7 +27,8 @@ import javax.inject.Inject
 @HiltViewModel
 class LandingScreenViewModel @Inject constructor(
     private val app: Application,
-    private val authRepository: AuthRepository
+    private val authRepository: AuthRepository,
+    private val mainRepository: MainRepository
 ) : AndroidViewModel(app) {
 
 
@@ -98,6 +102,41 @@ class LandingScreenViewModel @Inject constructor(
             }
         }
 
+    private val _userDetailsUiState = MutableStateFlow(UserDetailsScreenState())
+    val userDetailsUiState = _userDetailsUiState.asStateFlow()
+
+    fun userDetails(userDetailsRequest: UserDetailsRequest) =
+        viewModelScope.launch(Dispatchers.Main) {
+            _userDetailsUiState.update {
+                it.copy(
+                    loading = true
+                )
+            }
+            handleApi {
+                mainRepository.userDetails(userDetailsRequest)
+            }.onSuccess { response ->
+                _userDetailsUiState.update {
+                    it.copy(
+                        loading = false,
+                        details = response.details
+                    )
+                }
+            }.onError { code, message ->
+                _userDetailsUiState.update {
+                    it.copy(
+                        loading = false,
+                        message = message
+                    )
+                }
+            }.onException {
+                _userDetailsUiState.update {
+                    it.copy(
+                        loading = false
+                    )
+                }
+            }
+        }
+
     fun messageAlreadyDisplayed() {
         viewModelScope.launch {
             _signInUiState.update {
@@ -108,6 +147,13 @@ class LandingScreenViewModel @Inject constructor(
         }
         viewModelScope.launch {
             _signUpUiState.update {
+                it.copy(
+                    message = null
+                )
+            }
+        }
+        viewModelScope.launch {
+            _userDetailsUiState.update {
                 it.copy(
                     message = null
                 )
@@ -127,6 +173,16 @@ class LandingScreenViewModel @Inject constructor(
             result = Pair(false, "Email is invalid")
         } else if (!TextUtils.isEmpty(password) && password.length <= 7) {
             result = Pair(false, "Password length should be 8 characters long")
+        }
+        return result
+    }
+
+    fun validateUserDetails(dailyGoal: String): Pair<Boolean, String> {
+
+        var result = Pair(true, "")
+
+        if (TextUtils.isEmpty(dailyGoal)) {
+            result = Pair(false, "Please provide daily step goal")
         }
         return result
     }
@@ -168,4 +224,10 @@ data class SignUpScreenState(
     val loading: Boolean = false,
     val message: String? = null,
     val token: String? = null
+)
+
+data class UserDetailsScreenState(
+    val loading: Boolean = false,
+    val message: String? = null,
+    val details: Details? = null
 )

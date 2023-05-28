@@ -25,9 +25,11 @@ import com.example.testapp.model.signup.SignUpRequest
 import com.example.testapp.util.TokenManager
 import com.example.testapp.viewmodel.LandingScreenViewModel
 import com.google.android.material.button.MaterialButton
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import javax.inject.Inject
 
+@AndroidEntryPoint
 class SignupFragment : Fragment() {
 
     private var _binding: FragmentSignupBinding? = null

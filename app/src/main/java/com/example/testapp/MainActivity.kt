@@ -69,12 +69,12 @@ class MainActivity : AppCompatActivity() {
                 R.drawable.ic_camera,
                 R.drawable.avd_camera,
                 R.id.cameraFragment
-            )/*,
+            ),
             CbnMenuItem(
                 R.drawable.ic_user,
                 R.drawable.avd_user,
                 R.id.profileFragment
-            )*/
+            )
         )
 
         binding.navBottom.setMenuItems(menuItems, 0)

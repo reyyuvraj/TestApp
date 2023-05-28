@@ -90,7 +90,7 @@ fun RestScreen(
                 .fillMaxWidth()
                 .height(48.dp),
             colors = ButtonDefaults.buttonColors(
-                backgroundColor = progressBarFilled,
+                backgroundColor = Color.Black,
                 contentColor = Color.White
             ),
             shape = RoundedCornerShape(18.dp)

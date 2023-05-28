@@ -22,7 +22,7 @@
         android:fontFamily="@font/poppins"
         android:letterSpacing="0.04"
         android:text="Provide us some details to track your goals and progress."
-        android:textColor="@color/primaryColor"
+        android:textColor="@color/black"
 
         android:textSize="18sp"
         android:textStyle="bold"
@@ -40,7 +40,7 @@
         android:letterSpacing="0.04"
         android:textStyle="bold"
         android:text="Enter Height (in Cm)"
-        android:textColor="@color/SecondaryColorLight"
+        android:textColor="#343434"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/infoText" />
@@ -77,7 +77,7 @@
         android:letterSpacing="0.04"
         android:textStyle="bold"
         android:text="Enter Weight (in Kg's)"
-        android:textColor="@color/SecondaryColorLight"
+        android:textColor="#343434"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/height_picker" />
@@ -113,7 +113,7 @@
         android:fontFamily="@font/poppins"
         android:letterSpacing="0.04"
         android:text="Enter your daily step goal"
-        android:textColor="@color/SecondaryColorLight"
+        android:textColor="#343434"
         android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"

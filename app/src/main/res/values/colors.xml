@@ -27,4 +27,31 @@
     <color name="red">#FF0000</color>
     <color name="statusBarColor">#00000000</color>
     <color name="statusBar">#FFFFFF</color>
+
+
+    <color name="primaryColor">#FF4900</color>
+    <color name="primaryColor_48">#7AFF4900</color>
+    <color name="primaryColor_60">#99FF4900</color>
+    <color name="orange_background_11">#1CFF4900</color>
+    <color name="primaryColor_15">#26FF4900</color>
+    <color name="primaryColor_06">#0FFF4900</color>
+    <color name="SecondaryColor">#E28D0C</color>
+    <color name="SecondaryColorLight">#FF9900</color>
+    <color name="inputTextColor">#000000</color>
+    <color name="stroke_color_gray">#C1C1C1</color>
+<!--    <color name="gray">#B5B5B5</color>-->
+    <color name="stroke_edit_text">#838383</color>
+    <color name="gray_text">#838383</color>
+    <color name="light_black_text">#474747</color>
+    <color name="profile_background">#DFDFDF</color>
+    <color name="light_stroke_color">#ECECEC</color>
+    <color name="hint_color">#80404044</color>
+    <color name="edit_text_background">#F6F6F6</color>
+    <color name="edit_stroke_color">#ECECEC</color>
+    <color name="chips_background_color">#14FF9900</color>
+    <color name="chipBackgroundColor">@color/white</color>
+    <color name="checkedChipBackgroundColor">#1FFF9900</color>
+    <color name="placeholderColor">#D1D1D1</color>
+    <color name="approved_card_color">#E1F9E0</color>
+    <color name="pending_card_color">#E6BAB7</color>
 </resources>

@@ -2,7 +2,10 @@ package com.example.testapp.camera
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.content.ActivityNotFoundException
+import android.content.ComponentName
 import android.content.Context
+import android.content.Intent
 import android.graphics.*
 import android.hardware.camera2.CameraCaptureSession
 import android.hardware.camera2.CameraDevice
@@ -12,15 +15,16 @@ import android.os.Handler
 import android.os.HandlerThread
 import android.util.Log
 import android.view.*
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.content.PermissionChecker
 import androidx.core.content.PermissionChecker.checkSelfPermission
 import androidx.fragment.app.Fragment
 import com.example.testapp.BuildConfig
 import com.example.testapp.R
 import com.example.testapp.ml.LiteModelMovenetSingleposeThunderTfliteFloat164
-import com.example.testapp.util.TextViewTree
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.tensorflow.lite.DataType
 import org.tensorflow.lite.support.image.ImageProcessor
@@ -46,9 +50,7 @@ class CameraFragment : Fragment(R.layout.fragment_camera) {
     private val paint = Paint()
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         // Initialize Timber
         if (BuildConfig.DEBUG) {
@@ -65,6 +67,27 @@ class CameraFragment : Fragment(R.layout.fragment_camera) {
         }
 
         setUpView()
+
+        view.findViewById<Button>(R.id.fc_btn)?.apply {
+            setOnClickListener {
+                val packageName = "com.example.yoga_tracker"
+                val className = "com.example.yoga_tracker.ClassifyYogaSet1Activity"
+
+                val intent = Intent()
+                intent.component = ComponentName(packageName, className)
+
+                // val intent = Intent(requireContext(), CameraActivity::class.java)
+                startActivity(intent)
+                try {
+                    startActivity(intent)
+                } catch (e: ActivityNotFoundException) {
+                    // Handle the case when the target application is not found
+                    Toast.makeText(
+                        requireContext(), "Target application not found", Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
+        }
 
         textureView = view.findViewById(R.id.fc_texture_view)
         cameraManager = activity?.getSystemService(Context.CAMERA_SERVICE) as CameraManager
@@ -244,10 +267,7 @@ class CameraFragment : Fragment(R.layout.fragment_camera) {
 
     fun clearLog() {
         try {
-            val process = ProcessBuilder()
-                .command("logcat", "-d")
-                .redirectErrorStream(true)
-                .start()
+            val process = ProcessBuilder().command("logcat", "-d").redirectErrorStream(true).start()
         } catch (e: IOException) {
         }
     }

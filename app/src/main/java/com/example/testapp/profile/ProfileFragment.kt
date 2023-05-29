@@ -17,6 +17,7 @@ import com.example.testapp.model.userdetails.Details
 import com.example.testapp.util.TokenManager
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
+import kotlin.math.roundToInt
 
 @AndroidEntryPoint
 class ProfileFragment : Fragment() {
@@ -43,7 +44,7 @@ class ProfileFragment : Fragment() {
             val weight = userDetails.weight.toInt()
             val heightInMetre = height/100.0
             Log.d("btao","$height $heightInMetre")
-            val bmi = ((weight)/(heightInMetre*heightInMetre))
+            val bmi = ((weight)/(heightInMetre*heightInMetre)).roundToInt()
             binding.bmi.text = bmi.toString()
         }
         binding.logoutButton.setOnClickListener {

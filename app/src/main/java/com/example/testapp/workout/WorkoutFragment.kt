@@ -38,7 +38,7 @@ class WorkoutFragment : Fragment() {
         composeView.setContent {
             WorkoutScreen(
                 onViewMoreNavigate = {
-                    Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
+//                    Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
                     findNavController().navigate(R.id.action_workoutFragment_to_exercisesFragment)
                 },
                 calorie = previousTotalCalorie.toInt().toString(),

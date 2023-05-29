@@ -26,7 +26,7 @@ class RankingAdapter : RecyclerView.Adapter<RankingAdapter.ViewHolder>() {
         holder.rank.text = item.rank.toString()
         holder.image.setImageResource(item.profileImage!!)
         holder.name.text = item.profileName
-        holder.xp.text = item.rank.toString()
+        holder.xp.text = item.id.toString()
     }
 
     override fun getItemCount(): Int {

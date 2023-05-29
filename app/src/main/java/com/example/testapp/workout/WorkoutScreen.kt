@@ -38,13 +38,16 @@ import androidx.compose.ui.unit.dp
 import com.example.testapp.R
 import com.example.testapp.theme.CardEndColorColor
 import com.example.testapp.theme.CardStartColor
+import com.example.testapp.theme.LightTextColor
 import com.example.testapp.theme.TextColor
 import com.example.testapp.theme.UnselectedChipColor
 
 //@Preview(showBackground = true)
 @Composable
 fun WorkoutScreen(
-    onViewMoreNavigate: (String) -> Unit
+    onViewMoreNavigate: (String) -> Unit,
+    calorie: String = "720",
+    steps: String = "1000"
 ) {
 
     var selectedLevel by remember {
@@ -73,9 +76,9 @@ fun WorkoutScreen(
 
         DailyPlan(
             titleCalorie = "Calories",
-            numberCalorie = "720",
+            numberCalorie = calorie,
             titleSteps = "Steps",
-            numberSteps = "1000"
+            numberSteps = steps
         )
 
         Spacer(modifier = Modifier.height(12.dp))
@@ -189,7 +192,7 @@ fun DailyPlan(
                 Text(
                     text = "Kcal",
                     fontSize = MaterialTheme.typography.body1.fontSize,
-                    color = TextColor.copy(alpha = 0.8f)
+                    color = LightTextColor
                 )
             }
         }
@@ -237,7 +240,7 @@ fun DailyPlan(
                 Text(
                     text = "Steps",
                     fontSize = MaterialTheme.typography.body1.fontSize,
-                    color = TextColor.copy(alpha = 0.8f)
+                    color = LightTextColor
                 )
             }
         }
@@ -287,7 +290,7 @@ fun WorkoutCard(
                 Text(
                     text = exerciseTime,
                     fontSize = MaterialTheme.typography.body1.fontSize,
-                    color = TextColor
+                    color = LightTextColor
                 )
 
                 Spacer(modifier = Modifier.height(16.dp))

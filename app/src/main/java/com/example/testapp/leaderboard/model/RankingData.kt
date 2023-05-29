@@ -7,67 +7,67 @@ class RankingData {
     fun rankingList(): List<RankingModel> {
         return listOf(
             RankingModel(
-                1,
+                4000,
                 R.drawable.pp1,
                 "Alan",
                 1
             ),
             RankingModel(
-                2,
+                3985,
                 R.drawable.pp2,
                 "Sindy",
                 2
             ),
             RankingModel(
-                3,
+                3547,
                 R.drawable.pp3,
                 "Jason",
                 3
             ),
             RankingModel(
-                4,
+                3320,
                 R.drawable.pp4,
                 "Rick",
                 4
             ),
             RankingModel(
-                5,
+                3289,
                 R.drawable.pp5,
                 "Kristen",
                 5
             ),
             RankingModel(
-                6,
+                3236,
                 R.drawable.pp6,
                 "Alex",
                 6
             ),
             RankingModel(
-                7,
+                3214,
                 R.drawable.pp7,
                 "Paul",
                 7
             ),
             RankingModel(
-                8,
+                3195,
                 R.drawable.pp8,
                 "Amanda",
                 8
             ),
             RankingModel(
-                9,
+                3155,
                 R.drawable.pp9,
                 "Misty",
                 9
             ),
             RankingModel(
-                10,
+                3091,
                 R.drawable.pp10,
                 "Amanda",
                 10
             ),
             RankingModel(
-                11,
+                3014,
                 R.drawable.pp11,
                 "Bob",
                 11

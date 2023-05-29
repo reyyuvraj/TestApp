@@ -3,7 +3,7 @@ package com.example.testapp.util
 object Constants {
     const val READY = true
     const val TAG = "KUUBS"
-    const val BASE_URL = "https://securityoncalls.com/projects/RentService/api/user/"
+    const val BASE_URL = "https://finalapi-production.up.railway.app/users/"
 //    const val BASE_URL = "localhost:5000/users/"
     const val USER_TOKEN = "user_token"
     const val USER_LANGUAGE = "user_language"

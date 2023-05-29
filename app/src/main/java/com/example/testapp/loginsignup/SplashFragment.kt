@@ -10,11 +10,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.Navigation
+import com.example.testapp.MainActivity
 import com.example.testapp.R
+import com.example.testapp.util.TokenManager
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-
+@AndroidEntryPoint
 class SplashFragment : Fragment() {
+
+    @Inject
+    lateinit var tokenManager: TokenManager
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,8 +34,16 @@ class SplashFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         Handler(Looper.myLooper()!!).postDelayed({
-            Navigation.findNavController(requireActivity(), R.id.nav_host)
-                .navigate(R.id.action_splashFragment_to_loginFragment)
+            if (tokenManager.getToken() != null) {
+                val intent = Intent(requireActivity(), MainActivity::class.java)
+                startActivity(intent)
+                requireActivity().finish()
+            } else {
+                viewLifecycleOwner.lifecycleScope.launch {
+                    Navigation.findNavController(requireActivity(), R.id.nav_host)
+                        .navigate(R.id.action_splashFragment_to_loginFragment)
+                }
+            }
         }, 3000)
     }
 }

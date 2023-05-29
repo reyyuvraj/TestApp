@@ -113,4 +113,7 @@ dependencies {
 
     // Number Picker
     implementation 'io.github.ShawnLin013:number-picker:2.4.13'
+
+    //Chart library
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.0.2'
 }
